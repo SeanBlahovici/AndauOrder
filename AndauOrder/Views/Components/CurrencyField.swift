@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// A currency input field that works correctly on both macOS and iOS.
-/// Avoids the macOS `TextField(value:format:)` double-rendering issue.
+/// Uses LabeledContent to prevent macOS Form from splitting label/value incorrectly.
 struct CurrencyField: View {
     let label: String
     @Binding var amount: Decimal
@@ -10,36 +10,28 @@ struct CurrencyField: View {
     @FocusState private var isFocused: Bool
 
     var body: some View {
-        HStack {
-            Text(label)
-            Spacer()
-            HStack(spacing: 4) {
-                Text("$")
-                    .foregroundStyle(.secondary)
-                TextField("0.00", text: $text)
-                    .multilineTextAlignment(.trailing)
-                    .focused($isFocused)
-                    #if os(iOS)
-                    .keyboardType(.decimalPad)
-                    #endif
-                    .textFieldStyle(.plain)
-                    .onChange(of: text) { _, newValue in
-                        // Parse text to Decimal
-                        let cleaned = newValue.replacingOccurrences(of: ",", with: "")
-                        if let value = Decimal(string: cleaned) {
-                            amount = value
-                        } else if newValue.isEmpty || newValue == "-" {
-                            amount = 0
-                        }
+        LabeledContent(label) {
+            TextField("0.00", text: $text)
+                .multilineTextAlignment(.trailing)
+                .focused($isFocused)
+                .textFieldStyle(.plain)
+                .frame(minWidth: 100)
+                #if os(iOS)
+                .keyboardType(.decimalPad)
+                #endif
+                .onChange(of: text) { _, newValue in
+                    let cleaned = newValue.replacingOccurrences(of: ",", with: "")
+                    if let value = Decimal(string: cleaned) {
+                        amount = value
+                    } else if newValue.isEmpty || newValue == "-" {
+                        amount = 0
                     }
-                    .onChange(of: isFocused) { _, focused in
-                        if !focused {
-                            // Format on blur
-                            syncTextFromAmount()
-                        }
+                }
+                .onChange(of: isFocused) { _, focused in
+                    if !focused {
+                        syncTextFromAmount()
                     }
-            }
-            .frame(width: 130)
+                }
         }
         .onAppear {
             syncTextFromAmount()
@@ -53,13 +45,14 @@ struct CurrencyField: View {
 
     private func syncTextFromAmount() {
         if amount == 0 {
-            text = "0.00"
+            text = ""
         } else {
             let formatter = NumberFormatter()
-            formatter.numberStyle = .decimal
+            formatter.numberStyle = .currency
+            formatter.currencySymbol = "$"
             formatter.minimumFractionDigits = 2
             formatter.maximumFractionDigits = 2
-            text = formatter.string(from: amount as NSDecimalNumber) ?? "0.00"
+            text = formatter.string(from: amount as NSDecimalNumber) ?? ""
         }
     }
 }
@@ -73,34 +66,31 @@ struct CurrencyFieldDouble: View {
     @FocusState private var isFocused: Bool
 
     var body: some View {
-        HStack {
-            Text(label)
-            Spacer()
-            HStack(spacing: 4) {
-                Text("$")
-                    .foregroundStyle(.secondary)
-                TextField("0.00", text: $text)
-                    .multilineTextAlignment(.trailing)
-                    .focused($isFocused)
-                    #if os(iOS)
-                    .keyboardType(.decimalPad)
-                    #endif
-                    .textFieldStyle(.plain)
-                    .onChange(of: text) { _, newValue in
-                        let cleaned = newValue.replacingOccurrences(of: ",", with: "")
-                        if let value = Double(cleaned) {
-                            amount = value
-                        } else if newValue.isEmpty || newValue == "-" {
-                            amount = 0
-                        }
+        LabeledContent(label) {
+            TextField("$0.00", text: $text)
+                .multilineTextAlignment(.trailing)
+                .focused($isFocused)
+                .textFieldStyle(.plain)
+                .frame(minWidth: 100)
+                #if os(iOS)
+                .keyboardType(.decimalPad)
+                #endif
+                .onChange(of: text) { _, newValue in
+                    let cleaned = newValue
+                        .replacingOccurrences(of: "$", with: "")
+                        .replacingOccurrences(of: ",", with: "")
+                        .trimmingCharacters(in: .whitespaces)
+                    if let value = Double(cleaned) {
+                        amount = value
+                    } else if cleaned.isEmpty || cleaned == "-" {
+                        amount = 0
                     }
-                    .onChange(of: isFocused) { _, focused in
-                        if !focused {
-                            syncTextFromAmount()
-                        }
+                }
+                .onChange(of: isFocused) { _, focused in
+                    if !focused {
+                        syncTextFromAmount()
                     }
-            }
-            .frame(width: 130)
+                }
         }
         .onAppear {
             syncTextFromAmount()
@@ -114,9 +104,14 @@ struct CurrencyFieldDouble: View {
 
     private func syncTextFromAmount() {
         if amount == 0 {
-            text = "0.00"
+            text = ""
         } else {
-            text = String(format: "%.2f", amount)
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+            formatter.currencySymbol = "$"
+            formatter.minimumFractionDigits = 2
+            formatter.maximumFractionDigits = 2
+            text = formatter.string(from: NSNumber(value: amount)) ?? ""
         }
     }
 }
