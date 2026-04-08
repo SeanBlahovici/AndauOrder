@@ -1,6 +1,5 @@
 import Foundation
 
-#if DEBUG
 enum SampleOrderFactory {
     static func create() -> OrderFormData {
         var order = OrderFormData()
@@ -123,4 +122,3 @@ enum SampleOrderFactory {
         return order
     }
 }
-#endif

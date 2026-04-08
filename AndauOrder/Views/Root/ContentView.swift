@@ -17,7 +17,6 @@ struct ContentView: View {
                 onDelete: deleteOrder
             )
             .toolbar {
-                #if DEBUG
                 ToolbarItem(placement: .automatic) {
                     Button {
                         createSampleOrder()
@@ -25,7 +24,6 @@ struct ContentView: View {
                         Label("Sample Order", systemImage: "flask")
                     }
                 }
-                #endif
                 ToolbarItem(placement: .automatic) {
                     Button {
                         showSettings = true
@@ -73,7 +71,6 @@ struct ContentView: View {
         try? modelContext.save()
     }
 
-    #if DEBUG
     private func createSampleOrder() {
         let formData = SampleOrderFactory.create()
         let order = OrderRecord(orderData: formData)
@@ -81,5 +78,4 @@ struct ContentView: View {
         try? modelContext.save()
         selectedOrderID = order.id
     }
-    #endif
 }
