@@ -2,9 +2,25 @@ import SwiftUI
 
 struct PricingView: View {
     @Binding var formData: OrderFormData
+    var onRecalculate: (() -> Void)?
 
     var body: some View {
         Form {
+            Section {
+                Button {
+                    onRecalculate?()
+                } label: {
+                    Label("Recalculate from Catalog", systemImage: "arrow.trianglehead.2.clockwise")
+                }
+
+                Label(
+                    "Prices auto-fill from your catalog when you tap Recalculate. You can override any value manually.",
+                    systemImage: "info.circle"
+                )
+                .font(.caption)
+                .foregroundStyle(.secondary)
+            }
+
             Section("Line Items") {
                 currencyField("Loupes", value: $formData.pricing.loupes)
                 currencyField("Internal Correction", value: $formData.pricing.internalCorrection)
@@ -41,6 +57,9 @@ struct PricingView: View {
             }
         }
         .formStyle(.grouped)
+        .onAppear {
+            onRecalculate?()
+        }
     }
 
     @ViewBuilder

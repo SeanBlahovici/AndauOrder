@@ -42,7 +42,9 @@ struct OrderFormContainerView: View {
                 case .customization:
                     CustomizationView(formData: Bindable(viewModel).formData)
                 case .pricing:
-                    PricingView(formData: Bindable(viewModel).formData)
+                    PricingView(formData: Bindable(viewModel).formData, onRecalculate: {
+                        viewModel.recalculatePricing()
+                    })
                 case .reviewChecklist:
                     ReviewChecklistView(formData: Bindable(viewModel).formData)
                 case .reviewSubmit:

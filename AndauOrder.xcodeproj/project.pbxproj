@@ -15,6 +15,7 @@
 		2518B01985497AD956398FE5 /* PricingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3F2C4B0AB2F5E9EFFF5B3 /* PricingView.swift */; };
 		27D04EF4FD9FE8BC47DDC07A /* CustomerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990FBDBEDFB3394F1BD1B18E /* CustomerInfoView.swift */; };
 		27E642577126BBEF7AEEE293 /* PricingCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5A0FE6C86A141DF48C47A /* PricingCalculatorTests.swift */; };
+		28ECBB23073A745A84F7E773 /* PriceCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55282270CF61FF4A32E9C03 /* PriceCatalog.swift */; };
 		33E90309A4F9E533097101C6 /* OrderPricing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4782DB20E8283694B54BD65 /* OrderPricing.swift */; };
 		364576F900F5CE34648CA925 /* LoupeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56D025F07C22406F72D4848 /* LoupeSelection.swift */; };
 		3C02A34EA1E59C8F80814756 /* Prescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2EF1DA6EB54C5CA4F00E12 /* Prescription.swift */; };
@@ -41,6 +42,7 @@
 		76CC2FEDE720ED83416B398C /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAC748E80F99024B03A938D /* NetworkMonitor.swift */; };
 		801D6F97044F0172CD56FBC4 /* OrderRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA7D923F730D3053BF18BD9 /* OrderRecord.swift */; };
 		809FB71534578BB709D24EEC /* OrderListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C282EC9D156EEF464593793E /* OrderListViewModel.swift */; };
+		8342269518B5B957B5978220 /* PriceCatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E54F24235EAE89E1A3789 /* PriceCatalogView.swift */; };
 		8AE15BDAA0E51C3AAA52D424 /* ReviewSubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B765DF917B56A145D7CAA82 /* ReviewSubmitView.swift */; };
 		8B44FE9081E6E7668CAEABFB /* SyncStatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17B456D01E117D0DBF2EE2C /* SyncStatusBadge.swift */; };
 		8BA03B484734A3BEA2596CB1 /* StudentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73366D286E386B9CF0D299 /* StudentInfo.swift */; };
@@ -72,7 +74,9 @@
 		EB1AB583C513D09898E6BA8E /* PPESelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E6059806EDE898199B577C /* PPESelection.swift */; };
 		EB5B018FBFFB3F8DA651E029 /* ReviewSubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B765DF917B56A145D7CAA82 /* ReviewSubmitView.swift */; };
 		ED0191FE7D22F7034E188088 /* SyncStatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17B456D01E117D0DBF2EE2C /* SyncStatusBadge.swift */; };
+		ED5CB788B677CC0C4E38A9F3 /* PriceCatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E54F24235EAE89E1A3789 /* PriceCatalogView.swift */; };
 		F2FDD379607D5C683CE76538 /* OrderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A090EBF88C2C81EBECC98FC8 /* OrderRowView.swift */; };
+		F3492274F3DC12D72F5F94D7 /* PriceCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55282270CF61FF4A32E9C03 /* PriceCatalog.swift */; };
 		F3E7320755CE0DB3DC28F0A0 /* ReviewChecklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D71FE0B1509CEB83CC80FE /* ReviewChecklist.swift */; };
 		FCC30FCD862E497B3A16F92B /* CustomizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BC75B412640D0BC4268755 /* CustomizationView.swift */; };
 /* End PBXBuildFile section */
@@ -97,11 +101,12 @@
 /* Begin PBXFileReference section */
 		1FB3F2C4B0AB2F5E9EFFF5B3 /* PricingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingView.swift; sourceTree = "<group>"; };
 		2288AEC3D602CEBE51B12A1C /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
-		22EF524CD810C5881B7B7774 /* AndauOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AndauOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22EF524CD810C5881B7B7774 /* AndauOrder_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AndauOrder_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2439302F7981444EF126CB84 /* AndauOrderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndauOrderApp.swift; sourceTree = "<group>"; };
 		2B765DF917B56A145D7CAA82 /* ReviewSubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSubmitView.swift; sourceTree = "<group>"; };
 		2D95A109A57749B788F47866 /* HeadlightSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlightSelection.swift; sourceTree = "<group>"; };
-		480C5BD02666A2B8D7BDC4CE /* AndauOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AndauOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		421E54F24235EAE89E1A3789 /* PriceCatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCatalogView.swift; sourceTree = "<group>"; };
+		480C5BD02666A2B8D7BDC4CE /* AndauOrder_iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AndauOrder_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB3A6A835EF58DFDF4CBF25 /* OrderFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFormData.swift; sourceTree = "<group>"; };
 		5A8D8CD72A7259FA62268DC7 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		5C1E21FF7CD250D392FA9F23 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -114,9 +119,10 @@
 		9F8C35E8D2AEBAB2A90EC5F9 /* Customization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customization.swift; sourceTree = "<group>"; };
 		A090EBF88C2C81EBECC98FC8 /* OrderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRowView.swift; sourceTree = "<group>"; };
 		A3EE3232B0342F62FBB695B0 /* ReviewChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewChecklistView.swift; sourceTree = "<group>"; };
+		A55282270CF61FF4A32E9C03 /* PriceCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCatalog.swift; sourceTree = "<group>"; };
 		A56D025F07C22406F72D4848 /* LoupeSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoupeSelection.swift; sourceTree = "<group>"; };
 		A6E6059806EDE898199B577C /* PPESelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPESelection.swift; sourceTree = "<group>"; };
-		A7852BB5BDD19967CF08ED7E /* AndauOrderTests_iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AndauOrderTests_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7852BB5BDD19967CF08ED7E /* AndauOrderTests_iOS.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = AndauOrderTests_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0BC75B412640D0BC4268755 /* CustomizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationView.swift; sourceTree = "<group>"; };
 		C282EC9D156EEF464593793E /* OrderListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewModel.swift; sourceTree = "<group>"; };
 		C6713F1FAF93FAF91EEA29BD /* ProductSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSelectionView.swift; sourceTree = "<group>"; };
@@ -166,6 +172,7 @@
 		2129A9820F5138C63F8ABF02 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				421E54F24235EAE89E1A3789 /* PriceCatalogView.swift */,
 				FC700E635C3C9E86BBE233DD /* SettingsView.swift */,
 			);
 			path = Settings;
@@ -270,6 +277,7 @@
 			children = (
 				D29A119C0702A27A6CC11757 /* CachedZohoItem.swift */,
 				9AA7D923F730D3053BF18BD9 /* OrderRecord.swift */,
+				A55282270CF61FF4A32E9C03 /* PriceCatalog.swift */,
 				6F7C7D2A3DD0223399D0039A /* SyncQueueEntry.swift */,
 			);
 			path = Persistence;
@@ -278,8 +286,8 @@
 		66F26CE1ACC562A2FDE4C86E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				480C5BD02666A2B8D7BDC4CE /* AndauOrder.app */,
-				22EF524CD810C5881B7B7774 /* AndauOrder.app */,
+				480C5BD02666A2B8D7BDC4CE /* AndauOrder_iOS.app */,
+				22EF524CD810C5881B7B7774 /* AndauOrder_macOS.app */,
 				A7852BB5BDD19967CF08ED7E /* AndauOrderTests_iOS.xctest */,
 				F18010100980BC605E7E67EB /* AndauOrderTests_macOS.xctest */,
 			);
@@ -430,7 +438,7 @@
 			packageProductDependencies = (
 			);
 			productName = AndauOrder_macOS;
-			productReference = 22EF524CD810C5881B7B7774 /* AndauOrder.app */;
+			productReference = 22EF524CD810C5881B7B7774 /* AndauOrder_macOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4AD21F3C8C262B499B432CCE /* AndauOrderTests_macOS */ = {
@@ -466,7 +474,7 @@
 			packageProductDependencies = (
 			);
 			productName = AndauOrder_iOS;
-			productReference = 480C5BD02666A2B8D7BDC4CE /* AndauOrder.app */;
+			productReference = 480C5BD02666A2B8D7BDC4CE /* AndauOrder_iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B0B5AD0ABB77EF71F4DC57ED /* AndauOrderTests_iOS */ = {
@@ -494,7 +502,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 2640;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					32DF7291C6EB6DBA9C2D5B80 = {
 						DevelopmentTeam = "";
@@ -509,6 +517,7 @@
 						ProvisioningStyle = Automatic;
 					};
 					B0B5AD0ABB77EF71F4DC57ED = {
+						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -589,6 +598,8 @@
 				F2FDD379607D5C683CE76538 /* OrderRowView.swift in Sources */,
 				EB1AB583C513D09898E6BA8E /* PPESelection.swift in Sources */,
 				C6AFAD37FD2ACE096FD30A40 /* Prescription.swift in Sources */,
+				F3492274F3DC12D72F5F94D7 /* PriceCatalog.swift in Sources */,
+				8342269518B5B957B5978220 /* PriceCatalogView.swift in Sources */,
 				711374C7B18B893054D95218 /* PricingCalculator.swift in Sources */,
 				687227811F59C2E94D74F16E /* PricingView.swift in Sources */,
 				E7D3E19A3BB86EA99F831372 /* ProductSelectionView.swift in Sources */,
@@ -636,6 +647,8 @@
 				CDC0280E231640001DCA7F8C /* OrderRowView.swift in Sources */,
 				6E96976CA3EC0DB2DDA29B1B /* PPESelection.swift in Sources */,
 				3C02A34EA1E59C8F80814756 /* Prescription.swift in Sources */,
+				28ECBB23073A745A84F7E773 /* PriceCatalog.swift in Sources */,
+				ED5CB788B677CC0C4E38A9F3 /* PriceCatalogView.swift in Sources */,
 				C71D4BBBEA7A11AFEA3FC4B9 /* PricingCalculator.swift in Sources */,
 				2518B01985497AD956398FE5 /* PricingView.swift in Sources */,
 				BFAF0C6B8B7081ADB8A34D41 /* ProductSelectionView.swift in Sources */,
@@ -671,7 +684,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_GENERATION_MODE = GeneratedFile;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -721,7 +733,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -741,7 +752,6 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 6.0;
@@ -752,8 +762,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				DEVELOPMENT_TEAM = 57D5QE84VV;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -771,7 +779,6 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -788,7 +795,6 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -806,7 +812,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_GENERATION_MODE = GeneratedFile;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -856,7 +861,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -883,7 +887,6 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
@@ -916,8 +919,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				DEVELOPMENT_TEAM = 57D5QE84VV;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

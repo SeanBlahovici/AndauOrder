@@ -73,6 +73,21 @@ struct SettingsView: View {
                 .foregroundStyle(.secondary)
             }
 
+            Section("Product Prices") {
+                NavigationLink {
+                    PriceCatalogView()
+                } label: {
+                    Label("Price Catalog", systemImage: "dollarsign.circle")
+                }
+
+                Label(
+                    "Set base prices for products. Prices auto-fill when items are selected in orders.",
+                    systemImage: "info.circle"
+                )
+                .font(.caption)
+                .foregroundStyle(.secondary)
+            }
+
             Section("About") {
                 HStack {
                     Text("Version")

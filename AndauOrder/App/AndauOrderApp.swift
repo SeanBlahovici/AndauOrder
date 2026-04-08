@@ -11,6 +11,7 @@ struct AndauOrderApp: App {
             OrderRecord.self,
             SyncQueueEntry.self,
             CachedZohoItem.self,
+            PriceCatalogEntry.self,
         ])
         #if os(macOS)
         .defaultSize(width: 1200, height: 800)

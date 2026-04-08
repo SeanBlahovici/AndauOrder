@@ -33,6 +33,28 @@ final class OrderFormViewModel {
         orderRecord?.syncStatus ?? .draft
     }
 
+    // MARK: - Auto-Pricing
+
+    /// Recalculate pricing from the price catalog based on current product selections
+    func recalculatePricing() {
+        let catalog = fetchCatalog()
+        guard !catalog.isEmpty else { return }
+
+        let promotion = formData.pricing.lessPromotion
+        let taxRate = formData.pricing.taxRate
+
+        formData.pricing = PriceCatalogLookup.buildPricing(from: formData, catalog: catalog)
+
+        // Preserve user-entered values
+        formData.pricing.lessPromotion = promotion
+        formData.pricing.taxRate = taxRate
+    }
+
+    private func fetchCatalog() -> [PriceCatalogEntry] {
+        let descriptor = FetchDescriptor<PriceCatalogEntry>()
+        return (try? modelContext.fetch(descriptor)) ?? []
+    }
+
     // MARK: - Persistence
 
     func save() {
