@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ReviewSubmitView: View {
-    let viewModel: OrderFormViewModel
+    @Bindable var viewModel: OrderFormViewModel
     @Environment(SyncCoordinator.self) private var syncCoordinator
     @Environment(\.modelContext) private var modelContext
 
@@ -72,6 +72,10 @@ struct ReviewSubmitView: View {
                             formData.reviewChecklist.isComplete ? .green : .orange
                         )
                 }
+            }
+
+            Section("Signature") {
+                SignatureCaptureView(signatureData: $viewModel.formData.signatureImageData)
             }
 
             // Actions

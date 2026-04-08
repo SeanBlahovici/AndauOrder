@@ -1,7 +1,9 @@
 import SwiftUI
+import PhotosUI
 
 struct CustomerInfoView: View {
     @Binding var formData: OrderFormData
+    @State private var selectedPhoto: PhotosPickerItem?
 
     var body: some View {
         Form {
@@ -72,9 +74,25 @@ struct CustomerInfoView: View {
                         displayedComponents: .date
                     )
 
-                    // Photo capture placeholder
-                    Label("School ID Photo", systemImage: "camera")
-                        .foregroundStyle(.secondary)
+                    PhotosPicker(selection: $selectedPhoto, matching: .images) {
+                        if let photoData = formData.customer.studentInfo?.schoolIDPhotoData,
+                           let image = imageFromData(photoData) {
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxHeight: 150)
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                        } else {
+                            Label("Select School ID Photo", systemImage: "photo.badge.plus")
+                        }
+                    }
+                    .onChange(of: selectedPhoto) { _, newItem in
+                        Task {
+                            if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                                formData.customer.studentInfo?.schoolIDPhotoData = data
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -106,6 +124,18 @@ struct CustomerInfoView: View {
         TextField("Country", text: address.country)
             .textContentType(.countryName)
     }
+
+    #if os(macOS)
+    private func imageFromData(_ data: Data) -> Image? {
+        guard let nsImage = NSImage(data: data) else { return nil }
+        return Image(nsImage: nsImage)
+    }
+    #else
+    private func imageFromData(_ data: Data) -> Image? {
+        guard let uiImage = UIImage(data: data) else { return nil }
+        return Image(uiImage: uiImage)
+    }
+    #endif
 
     private var studentInfoBinding: Binding<StudentInfo> {
         Binding(

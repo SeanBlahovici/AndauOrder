@@ -4,7 +4,9 @@ import SwiftData
 struct OrderFormContainerView: View {
     let orderRecord: OrderRecord
     @Environment(\.modelContext) private var modelContext
+    @Environment(SyncCoordinator.self) private var syncCoordinator: SyncCoordinator?
     @State private var viewModel: OrderFormViewModel?
+    @State private var autoSaveTask: Task<Void, Never>?
 
     var body: some View {
         Group {
@@ -57,6 +59,13 @@ struct OrderFormContainerView: View {
         .navigationBarTitleDisplayMode(.inline)
         #endif
         .toolbar {
+            ToolbarItem(placement: .automatic) {
+                if let syncCoordinator {
+                    Image(systemName: syncCoordinator.isConnected ? "wifi" : "wifi.slash")
+                        .foregroundStyle(syncCoordinator.isConnected ? .green : .red)
+                        .help(syncCoordinator.isConnected ? "Connected" : "Offline")
+                }
+            }
             ToolbarItem(placement: .primaryAction) {
                 HStack(spacing: 12) {
                     SyncStatusBadge(status: viewModel.syncStatus)
@@ -65,6 +74,15 @@ struct OrderFormContainerView: View {
                     }
                     .buttonStyle(.borderedProminent)
                 }
+            }
+        }
+        .onChange(of: viewModel.formData) { _, _ in
+            viewModel.hasUnsavedChanges = true
+            autoSaveTask?.cancel()
+            autoSaveTask = Task {
+                try? await Task.sleep(for: .milliseconds(500))
+                guard !Task.isCancelled else { return }
+                viewModel.save()
             }
         }
     }
