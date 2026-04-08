@@ -12,7 +12,7 @@ protocol ZohoCRMServiceProtocol: Sendable {
 
 // MARK: - Implementation
 
-final class ZohoCRMService: ZohoCRMServiceProtocol, Sendable {
+final class ZohoCRMService: ZohoCRMServiceProtocol, @unchecked Sendable {
 
     private let httpClient: any HTTPClientProtocol
     private let defaults: UserDefaults

@@ -55,12 +55,10 @@ final class HTTPClient: HTTPClientProtocol, Sendable {
 
     private let authService: any ZohoAuthServiceProtocol
     private let session: URLSession
-    private let decoder: JSONDecoder
 
     init(authService: any ZohoAuthServiceProtocol, session: URLSession = .shared) {
         self.authService = authService
         self.session = session
-        self.decoder = JSONDecoder()
     }
 
     func request<T: Decodable>(
@@ -71,7 +69,7 @@ final class HTTPClient: HTTPClientProtocol, Sendable {
     ) async throws -> T {
         let (data, _) = try await requestRaw(method, url: url, body: body, queryParams: queryParams)
         do {
-            return try decoder.decode(T.self, from: data)
+            return try JSONDecoder().decode(T.self, from: data)
         } catch {
             throw APIError.decodingFailed(underlying: error)
         }

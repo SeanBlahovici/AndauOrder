@@ -9,6 +9,9 @@ struct SettingsView: View {
     @AppStorage("michelleEmail") private var michelleEmail = ""
     @AppStorage("michellePhone") private var michellePhone = ""
 
+    @State private var connectionTestResult: ConnectionTestResult?
+    @State private var isTestingConnection = false
+
     var body: some View {
         Form {
             Section("Zoho Environment") {
@@ -49,6 +52,30 @@ struct SettingsView: View {
                 )
                 .font(.caption)
                 .foregroundStyle(.secondary)
+
+                Button {
+                    testConnection()
+                } label: {
+                    HStack {
+                        if isTestingConnection {
+                            ProgressView()
+                                .controlSize(.small)
+                            Text("Testing...")
+                        } else {
+                            Label("Test Connection", systemImage: "antenna.radiowaves.left.and.right")
+                        }
+                    }
+                }
+                .disabled(clientID.isEmpty || clientSecret.isEmpty || refreshToken.isEmpty || isTestingConnection)
+
+                if let result = connectionTestResult {
+                    Label(
+                        result.message,
+                        systemImage: result.isSuccess ? "checkmark.circle.fill" : "xmark.circle.fill"
+                    )
+                    .foregroundStyle(result.isSuccess ? .green : .red)
+                    .font(.caption)
+                }
             }
 
             Section("Michelle's Contact Info") {
@@ -71,6 +98,14 @@ struct SettingsView: View {
                 )
                 .font(.caption)
                 .foregroundStyle(.secondary)
+            }
+
+            Section("Sync") {
+                NavigationLink {
+                    SyncStatusView()
+                } label: {
+                    Label("Sync Status", systemImage: "arrow.trianglehead.2.clockwise")
+                }
             }
 
             Section("Product Prices") {
@@ -100,4 +135,25 @@ struct SettingsView: View {
         .formStyle(.grouped)
         .navigationTitle("Settings")
     }
+
+    private func testConnection() {
+        isTestingConnection = true
+        connectionTestResult = nil
+
+        Task {
+            let authService = ZohoAuthService()
+            do {
+                _ = try await authService.validAccessToken()
+                connectionTestResult = ConnectionTestResult(isSuccess: true, message: "Connected successfully!")
+            } catch {
+                connectionTestResult = ConnectionTestResult(isSuccess: false, message: error.localizedDescription)
+            }
+            isTestingConnection = false
+        }
+    }
+}
+
+private struct ConnectionTestResult {
+    let isSuccess: Bool
+    let message: String
 }

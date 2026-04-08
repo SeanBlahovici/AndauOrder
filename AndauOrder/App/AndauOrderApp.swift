@@ -3,9 +3,12 @@ import SwiftData
 
 @main
 struct AndauOrderApp: App {
+    @State private var syncCoordinator = SyncCoordinator()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(syncCoordinator)
         }
         .modelContainer(for: [
             OrderRecord.self,

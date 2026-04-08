@@ -102,12 +102,18 @@ final class ZohoAuthService: ZohoAuthServiceProtocol, @unchecked Sendable {
 
         let tokenResponse = try JSONDecoder().decode(TokenRefreshResponse.self, from: data)
 
-        lock.lock()
-        tokenStore.accessToken = tokenResponse.access_token
-        tokenStore.accessTokenExpiry = Date.now.addingTimeInterval(TimeInterval(tokenResponse.expires_in))
-        lock.unlock()
+        let newToken = tokenResponse.access_token
+        let newExpiry = Date.now.addingTimeInterval(TimeInterval(tokenResponse.expires_in))
+        storeToken(newToken, expiry: newExpiry)
 
-        return tokenResponse.access_token
+        return newToken
+    }
+
+    private func storeToken(_ accessToken: String, expiry: Date) {
+        lock.lock()
+        defer { lock.unlock() }
+        tokenStore.accessToken = accessToken
+        tokenStore.accessTokenExpiry = expiry
     }
 }
 

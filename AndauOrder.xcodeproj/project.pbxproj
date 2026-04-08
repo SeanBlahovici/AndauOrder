@@ -7,46 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0097262574F584EA364F83E8 /* SyncCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00E78D76C9B9A08F4C4D9FA /* SyncCoordinator.swift */; };
 		02006322E195A6385DB3ED8E /* SyncQueueEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C7D2A3DD0223399D0039A /* SyncQueueEntry.swift */; };
 		02826CCC5A462DD808FF3019 /* PricingCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5A0FE6C86A141DF48C47A /* PricingCalculatorTests.swift */; };
+		0C9A86DA5C1CFAE3E265E307 /* EstimateDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ECC92C71DE235871582EA9 /* EstimateDTO.swift */; };
 		1302970154C12C4D3ADB5F30 /* CachedZohoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29A119C0702A27A6CC11757 /* CachedZohoItem.swift */; };
+		1758354213C6DF9D7FE91CE5 /* ConvertLeadDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F8439F683985A3B2E681A0 /* ConvertLeadDTO.swift */; };
+		18AAAAD5804840F2B9F29D67 /* ZohoEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DABA7012EB6385E517D2D76 /* ZohoEnvironment.swift */; };
 		19685D0535D2BCA6F76393F7 /* AndauOrderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439302F7981444EF126CB84 /* AndauOrderApp.swift */; };
 		2312544BA8F9F4CC0AF8FCE9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1E21FF7CD250D392FA9F23 /* Constants.swift */; };
 		2518B01985497AD956398FE5 /* PricingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3F2C4B0AB2F5E9EFFF5B3 /* PricingView.swift */; };
+		259F163D3A122FA90861211E /* FieldMappings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F29583045F70A2BE65AD262 /* FieldMappings.swift */; };
 		27D04EF4FD9FE8BC47DDC07A /* CustomerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990FBDBEDFB3394F1BD1B18E /* CustomerInfoView.swift */; };
 		27E642577126BBEF7AEEE293 /* PricingCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5A0FE6C86A141DF48C47A /* PricingCalculatorTests.swift */; };
 		28ECBB23073A745A84F7E773 /* PriceCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55282270CF61FF4A32E9C03 /* PriceCatalog.swift */; };
 		2DD5914C94EE96C832A8CF2E /* CurrencyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231A0C295A6EA8D48CB13447 /* CurrencyField.swift */; };
+		3114DADF882654F5E5A729E5 /* BooksCustomerDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A5BCC9C96E68A02025AEDB /* BooksCustomerDTO.swift */; };
 		33E90309A4F9E533097101C6 /* OrderPricing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4782DB20E8283694B54BD65 /* OrderPricing.swift */; };
+		34EC8437EE0539EA1FD921CB /* ZohoBooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D4707D0D01AA2BF2F456F /* ZohoBooksService.swift */; };
 		364576F900F5CE34648CA925 /* LoupeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56D025F07C22406F72D4848 /* LoupeSelection.swift */; };
+		36E59AE1D8EF97A8AD0621C5 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEB2B0128378110F2AA5078 /* HTTPClient.swift */; };
+		37BECCBBCDD4DD32539EEBD0 /* ZohoCRMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178451FE9A78A31AB1EEEA56 /* ZohoCRMService.swift */; };
 		3C02A34EA1E59C8F80814756 /* Prescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2EF1DA6EB54C5CA4F00E12 /* Prescription.swift */; };
 		3F63564482AD6180775CCCD4 /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2288AEC3D602CEBE51B12A1C /* OrderListView.swift */; };
 		3FB7F7AA2D07F8B2653A041F /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAC748E80F99024B03A938D /* NetworkMonitor.swift */; };
 		42FF6B7AB448320AC330645E /* StudentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73366D286E386B9CF0D299 /* StudentInfo.swift */; };
+		44BC6D8F98F4A1294567C2CB /* ZohoBooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D4707D0D01AA2BF2F456F /* ZohoBooksService.swift */; };
 		457BA8223ECD0EC02581B0AB /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2288AEC3D602CEBE51B12A1C /* OrderListView.swift */; };
 		462E6FB1B7296E4B16547644 /* ReviewChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE3232B0342F62FBB695B0 /* ReviewChecklistView.swift */; };
 		46D0CC610FC81A65D52F9DDC /* ReviewChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE3232B0342F62FBB695B0 /* ReviewChecklistView.swift */; };
 		4778A0345A0DD3CB99670007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0020B493CA122031AF49D73 /* Assets.xcassets */; };
+		486FC264A2ED2A35811E719B /* ZohoAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456E604A53C3C2BD4C8097B2 /* ZohoAuthService.swift */; };
+		4A04F9B37DEADEF05478E18D /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B469F502CA157BE2DB3F91C9 /* TokenStore.swift */; };
+		4A3A4716AA14B37D16460404 /* BooksCustomerDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A5BCC9C96E68A02025AEDB /* BooksCustomerDTO.swift */; };
 		4B64971B739775C8C7F97DCF /* OrderFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3A6A835EF58DFDF4CBF25 /* OrderFormData.swift */; };
 		4BE93B4C0C98F4E3B9FF49CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49B98FB169B2D62D026B8DF /* ContentView.swift */; };
 		4D5FBA26D3B69E85941CC22A /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8D8CD72A7259FA62268DC7 /* Customer.swift */; };
+		501FB247BD6AEBBDAAA73B5E /* SyncCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00E78D76C9B9A08F4C4D9FA /* SyncCoordinator.swift */; };
 		543E5E45FF089313D8CC25E6 /* OrderFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB3A6A835EF58DFDF4CBF25 /* OrderFormData.swift */; };
 		561CA58D8FD8440D063A4278 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49B98FB169B2D62D026B8DF /* ContentView.swift */; };
 		56604AA6CE9F0D71D28AA405 /* OrderFormContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CCE6F053FD430DB69F1DDF /* OrderFormContainerView.swift */; };
+		58233EC9860750039210F371 /* BlueprintDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7400887ACE5BC1C4CCB62 /* BlueprintDTO.swift */; };
 		5996BD75FDD4F2843146C4C7 /* HeadlightSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D95A109A57749B788F47866 /* HeadlightSelection.swift */; };
 		6319436807F3EFDC612087B4 /* AndauOrderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439302F7981444EF126CB84 /* AndauOrderApp.swift */; };
+		6545DBB9724CD71607F4AAD3 /* SyncStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFACEF9B0C473D6F5E8A584 /* SyncStatusView.swift */; };
 		66B9840EC4F53E7B6BB98CC7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC700E635C3C9E86BBE233DD /* SettingsView.swift */; };
 		687227811F59C2E94D74F16E /* PricingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB3F2C4B0AB2F5E9EFFF5B3 /* PricingView.swift */; };
 		6D4E43763D59CAD332161F8C /* CustomizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BC75B412640D0BC4268755 /* CustomizationView.swift */; };
+		6E5569659EA1F11784D297E9 /* SyncEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23271E8E333BE5B59B0B61CE /* SyncEngine.swift */; };
 		6E96976CA3EC0DB2DDA29B1B /* PPESelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E6059806EDE898199B577C /* PPESelection.swift */; };
+		6FA2E0CA7E7477D8FDBE9F57 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8961C3054A70F9B098130E26 /* APIError.swift */; };
 		711374C7B18B893054D95218 /* PricingCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA14D1EB8E9B11EB48ABD4 /* PricingCalculator.swift */; };
 		76CC2FEDE720ED83416B398C /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAC748E80F99024B03A938D /* NetworkMonitor.swift */; };
+		7EC6B20326B01D7213B52495 /* ZohoAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456E604A53C3C2BD4C8097B2 /* ZohoAuthService.swift */; };
 		801D6F97044F0172CD56FBC4 /* OrderRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA7D923F730D3053BF18BD9 /* OrderRecord.swift */; };
 		809FB71534578BB709D24EEC /* OrderListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C282EC9D156EEF464593793E /* OrderListViewModel.swift */; };
+		81E1878373774E857234799D /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEB2B0128378110F2AA5078 /* HTTPClient.swift */; };
 		8342269518B5B957B5978220 /* PriceCatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E54F24235EAE89E1A3789 /* PriceCatalogView.swift */; };
+		857C4CC80448D21D21570B42 /* FieldMappings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F29583045F70A2BE65AD262 /* FieldMappings.swift */; };
 		8AE15BDAA0E51C3AAA52D424 /* ReviewSubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B765DF917B56A145D7CAA82 /* ReviewSubmitView.swift */; };
 		8B44FE9081E6E7668CAEABFB /* SyncStatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17B456D01E117D0DBF2EE2C /* SyncStatusBadge.swift */; };
 		8BA03B484734A3BEA2596CB1 /* StudentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB73366D286E386B9CF0D299 /* StudentInfo.swift */; };
+		8E9D8797796F1296DA6F4576 /* CRMResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E25EFAF45B29801A0F0DD /* CRMResponseDTO.swift */; };
 		9632132D1D95D743977D46F9 /* SyncQueueEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C7D2A3DD0223399D0039A /* SyncQueueEntry.swift */; };
 		985E1C1BFDB742A1CE70E311 /* OrderFormContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CCE6F053FD430DB69F1DDF /* OrderFormContainerView.swift */; };
 		99C3E186A0F2A8A33ACCE13F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1E21FF7CD250D392FA9F23 /* Constants.swift */; };
@@ -55,28 +77,38 @@
 		A6C647FC4435E5FDA036172E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0020B493CA122031AF49D73 /* Assets.xcassets */; };
 		A812A9C0497A218E2425E066 /* OrderRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA7D923F730D3053BF18BD9 /* OrderRecord.swift */; };
 		AD2B296E75720A54302B5F94 /* AdapterSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5FB9C673F4F55F68DE95C5 /* AdapterSelection.swift */; };
+		AF2E20DD90927CEE58892A49 /* ZohoCRMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178451FE9A78A31AB1EEEA56 /* ZohoCRMService.swift */; };
+		B297DF5E8BF910C1301AE4F2 /* BlueprintDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7400887ACE5BC1C4CCB62 /* BlueprintDTO.swift */; };
 		B467FE4B584762D531733E0E /* AdapterSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5FB9C673F4F55F68DE95C5 /* AdapterSelection.swift */; };
+		BE1E0A2872A22C846369D617 /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B469F502CA157BE2DB3F91C9 /* TokenStore.swift */; };
 		BEE2534AFFB1083B3E3937BF /* CurrencyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231A0C295A6EA8D48CB13447 /* CurrencyField.swift */; };
+		BF8A4D2B35312D7616B6D10D /* SyncStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFACEF9B0C473D6F5E8A584 /* SyncStatusView.swift */; };
 		BFAF0C6B8B7081ADB8A34D41 /* ProductSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6713F1FAF93FAF91EEA29BD /* ProductSelectionView.swift */; };
 		BFC74465EA31C22664FF8158 /* Customization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8C35E8D2AEBAB2A90EC5F9 /* Customization.swift */; };
+		C2E6A5F3538933985635E2D6 /* ConvertLeadDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F8439F683985A3B2E681A0 /* ConvertLeadDTO.swift */; };
 		C3C8857DBFB6B5F1542C48D9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC700E635C3C9E86BBE233DD /* SettingsView.swift */; };
 		C6AFAD37FD2ACE096FD30A40 /* Prescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2EF1DA6EB54C5CA4F00E12 /* Prescription.swift */; };
 		C71D4BBBEA7A11AFEA3FC4B9 /* PricingCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA14D1EB8E9B11EB48ABD4 /* PricingCalculator.swift */; };
 		C75CAA0A6B55B415F7E1FBAE /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8D8CD72A7259FA62268DC7 /* Customer.swift */; };
 		C7BE8A577EF98C49DFDC4812 /* HeadlightSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D95A109A57749B788F47866 /* HeadlightSelection.swift */; };
 		C7EA971F459F7913F8E0AA57 /* Customization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8C35E8D2AEBAB2A90EC5F9 /* Customization.swift */; };
+		C802F5468F9DEA8E6D28C71E /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8961C3054A70F9B098130E26 /* APIError.swift */; };
+		CA43564E5FA99EA98383EF4D /* ZohoEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DABA7012EB6385E517D2D76 /* ZohoEnvironment.swift */; };
 		CDC0280E231640001DCA7F8C /* OrderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A090EBF88C2C81EBECC98FC8 /* OrderRowView.swift */; };
 		D072F09D064681176DDBBF9D /* OrderFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6170BEABC961D72751731D13 /* OrderFormViewModel.swift */; };
 		D4C466083ED5BC91C9CA9D89 /* OrderPricing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4782DB20E8283694B54BD65 /* OrderPricing.swift */; };
 		D4EBEF25B4B83A4260E4B8E1 /* OrderListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C282EC9D156EEF464593793E /* OrderListViewModel.swift */; };
+		D4F0316BA7A78F771DED6981 /* CRMResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E25EFAF45B29801A0F0DD /* CRMResponseDTO.swift */; };
 		D991430E213869DEBC62A0EF /* CachedZohoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29A119C0702A27A6CC11757 /* CachedZohoItem.swift */; };
 		E29F512EE4594CFAF1DC0F30 /* CustomerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990FBDBEDFB3394F1BD1B18E /* CustomerInfoView.swift */; };
 		E7D3E19A3BB86EA99F831372 /* ProductSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6713F1FAF93FAF91EEA29BD /* ProductSelectionView.swift */; };
 		EA8EE80CBC1BF089D0DD56CB /* LoupeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56D025F07C22406F72D4848 /* LoupeSelection.swift */; };
 		EB1AB583C513D09898E6BA8E /* PPESelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E6059806EDE898199B577C /* PPESelection.swift */; };
 		EB5B018FBFFB3F8DA651E029 /* ReviewSubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B765DF917B56A145D7CAA82 /* ReviewSubmitView.swift */; };
+		ECC9D52662540AAB9F229109 /* SyncEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23271E8E333BE5B59B0B61CE /* SyncEngine.swift */; };
 		ED0191FE7D22F7034E188088 /* SyncStatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17B456D01E117D0DBF2EE2C /* SyncStatusBadge.swift */; };
 		ED5CB788B677CC0C4E38A9F3 /* PriceCatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E54F24235EAE89E1A3789 /* PriceCatalogView.swift */; };
+		F0ED47D489344126CE140353 /* EstimateDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ECC92C71DE235871582EA9 /* EstimateDTO.swift */; };
 		F2FDD379607D5C683CE76538 /* OrderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A090EBF88C2C81EBECC98FC8 /* OrderRowView.swift */; };
 		F3492274F3DC12D72F5F94D7 /* PriceCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55282270CF61FF4A32E9C03 /* PriceCatalog.swift */; };
 		F3E7320755CE0DB3DC28F0A0 /* ReviewChecklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D71FE0B1509CEB83CC80FE /* ReviewChecklist.swift */; };
@@ -101,21 +133,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02F8439F683985A3B2E681A0 /* ConvertLeadDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertLeadDTO.swift; sourceTree = "<group>"; };
+		06A5BCC9C96E68A02025AEDB /* BooksCustomerDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCustomerDTO.swift; sourceTree = "<group>"; };
+		178451FE9A78A31AB1EEEA56 /* ZohoCRMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZohoCRMService.swift; sourceTree = "<group>"; };
+		1F29583045F70A2BE65AD262 /* FieldMappings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldMappings.swift; sourceTree = "<group>"; };
 		1FB3F2C4B0AB2F5E9EFFF5B3 /* PricingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingView.swift; sourceTree = "<group>"; };
 		2288AEC3D602CEBE51B12A1C /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
 		22EF524CD810C5881B7B7774 /* AndauOrder_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AndauOrder_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		231A0C295A6EA8D48CB13447 /* CurrencyField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyField.swift; sourceTree = "<group>"; };
+		23271E8E333BE5B59B0B61CE /* SyncEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncEngine.swift; sourceTree = "<group>"; };
 		2439302F7981444EF126CB84 /* AndauOrderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndauOrderApp.swift; sourceTree = "<group>"; };
+		274E25EFAF45B29801A0F0DD /* CRMResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRMResponseDTO.swift; sourceTree = "<group>"; };
 		2B765DF917B56A145D7CAA82 /* ReviewSubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSubmitView.swift; sourceTree = "<group>"; };
 		2D95A109A57749B788F47866 /* HeadlightSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlightSelection.swift; sourceTree = "<group>"; };
 		421E54F24235EAE89E1A3789 /* PriceCatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCatalogView.swift; sourceTree = "<group>"; };
+		456E604A53C3C2BD4C8097B2 /* ZohoAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZohoAuthService.swift; sourceTree = "<group>"; };
 		480C5BD02666A2B8D7BDC4CE /* AndauOrder_iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AndauOrder_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB3A6A835EF58DFDF4CBF25 /* OrderFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFormData.swift; sourceTree = "<group>"; };
 		5A8D8CD72A7259FA62268DC7 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		5C1E21FF7CD250D392FA9F23 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6170BEABC961D72751731D13 /* OrderFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFormViewModel.swift; sourceTree = "<group>"; };
 		65CCE6F053FD430DB69F1DDF /* OrderFormContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFormContainerView.swift; sourceTree = "<group>"; };
+		67ECC92C71DE235871582EA9 /* EstimateDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateDTO.swift; sourceTree = "<group>"; };
+		6DABA7012EB6385E517D2D76 /* ZohoEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZohoEnvironment.swift; sourceTree = "<group>"; };
+		6E4D4707D0D01AA2BF2F456F /* ZohoBooksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZohoBooksService.swift; sourceTree = "<group>"; };
 		6F7C7D2A3DD0223399D0039A /* SyncQueueEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncQueueEntry.swift; sourceTree = "<group>"; };
+		7BFACEF9B0C473D6F5E8A584 /* SyncStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncStatusView.swift; sourceTree = "<group>"; };
+		8961C3054A70F9B098130E26 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		8B2EF1DA6EB54C5CA4F00E12 /* Prescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prescription.swift; sourceTree = "<group>"; };
 		990FBDBEDFB3394F1BD1B18E /* CustomerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerInfoView.swift; sourceTree = "<group>"; };
 		9AA7D923F730D3053BF18BD9 /* OrderRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRecord.swift; sourceTree = "<group>"; };
@@ -126,6 +170,10 @@
 		A56D025F07C22406F72D4848 /* LoupeSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoupeSelection.swift; sourceTree = "<group>"; };
 		A6E6059806EDE898199B577C /* PPESelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPESelection.swift; sourceTree = "<group>"; };
 		A7852BB5BDD19967CF08ED7E /* AndauOrderTests_iOS.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = AndauOrderTests_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B00E78D76C9B9A08F4C4D9FA /* SyncCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncCoordinator.swift; sourceTree = "<group>"; };
+		B469F502CA157BE2DB3F91C9 /* TokenStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStore.swift; sourceTree = "<group>"; };
+		BAEB2B0128378110F2AA5078 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		BCE7400887ACE5BC1C4CCB62 /* BlueprintDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueprintDTO.swift; sourceTree = "<group>"; };
 		C0BC75B412640D0BC4268755 /* CustomizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationView.swift; sourceTree = "<group>"; };
 		C282EC9D156EEF464593793E /* OrderListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewModel.swift; sourceTree = "<group>"; };
 		C6713F1FAF93FAF91EEA29BD /* ProductSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSelectionView.swift; sourceTree = "<group>"; };
@@ -177,6 +225,7 @@
 			children = (
 				421E54F24235EAE89E1A3789 /* PriceCatalogView.swift */,
 				FC700E635C3C9E86BBE233DD /* SettingsView.swift */,
+				7BFACEF9B0C473D6F5E8A584 /* SyncStatusView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -215,6 +264,9 @@
 		47B8364FF9691E396E1B0E38 /* Sync */ = {
 			isa = PBXGroup;
 			children = (
+				1F29583045F70A2BE65AD262 /* FieldMappings.swift */,
+				B00E78D76C9B9A08F4C4D9FA /* SyncCoordinator.swift */,
+				23271E8E333BE5B59B0B61CE /* SyncEngine.swift */,
 			);
 			path = Sync;
 			sourceTree = "<group>";
@@ -222,6 +274,9 @@
 		49DFDD0C1ABB7A292C9FB9EA /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				B469F502CA157BE2DB3F91C9 /* TokenStore.swift */,
+				456E604A53C3C2BD4C8097B2 /* ZohoAuthService.swift */,
+				6DABA7012EB6385E517D2D76 /* ZohoEnvironment.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -256,6 +311,8 @@
 		5827969F8B87C5CC67D1A13C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				8961C3054A70F9B098130E26 /* APIError.swift */,
+				BAEB2B0128378110F2AA5078 /* HTTPClient.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -309,6 +366,8 @@
 		7495AF54F9A749C1E1F41F1B /* Books */ = {
 			isa = PBXGroup;
 			children = (
+				06A5BCC9C96E68A02025AEDB /* BooksCustomerDTO.swift */,
+				67ECC92C71DE235871582EA9 /* EstimateDTO.swift */,
 			);
 			path = Books;
 			sourceTree = "<group>";
@@ -335,6 +394,9 @@
 		9A429BE713F9B5DD8B96E055 /* CRM */ = {
 			isa = PBXGroup;
 			children = (
+				BCE7400887ACE5BC1C4CCB62 /* BlueprintDTO.swift */,
+				02F8439F683985A3B2E681A0 /* ConvertLeadDTO.swift */,
+				274E25EFAF45B29801A0F0DD /* CRMResponseDTO.swift */,
 			);
 			path = CRM;
 			sourceTree = "<group>";
@@ -342,6 +404,7 @@
 		9AF64080D929D6B057C9F579 /* Books */ = {
 			isa = PBXGroup;
 			children = (
+				6E4D4707D0D01AA2BF2F456F /* ZohoBooksService.swift */,
 			);
 			path = Books;
 			sourceTree = "<group>";
@@ -382,6 +445,7 @@
 		CD81846B8C5ABBE9A832D9CB /* CRM */ = {
 			isa = PBXGroup;
 			children = (
+				178451FE9A78A31AB1EEEA56 /* ZohoCRMService.swift */,
 			);
 			path = CRM;
 			sourceTree = "<group>";
@@ -580,16 +644,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C802F5468F9DEA8E6D28C71E /* APIError.swift in Sources */,
 				B467FE4B584762D531733E0E /* AdapterSelection.swift in Sources */,
 				6319436807F3EFDC612087B4 /* AndauOrderApp.swift in Sources */,
+				58233EC9860750039210F371 /* BlueprintDTO.swift in Sources */,
+				4A3A4716AA14B37D16460404 /* BooksCustomerDTO.swift in Sources */,
+				8E9D8797796F1296DA6F4576 /* CRMResponseDTO.swift in Sources */,
 				D991430E213869DEBC62A0EF /* CachedZohoItem.swift in Sources */,
 				99C3E186A0F2A8A33ACCE13F /* Constants.swift in Sources */,
 				561CA58D8FD8440D063A4278 /* ContentView.swift in Sources */,
+				1758354213C6DF9D7FE91CE5 /* ConvertLeadDTO.swift in Sources */,
 				BEE2534AFFB1083B3E3937BF /* CurrencyField.swift in Sources */,
 				C75CAA0A6B55B415F7E1FBAE /* Customer.swift in Sources */,
 				27D04EF4FD9FE8BC47DDC07A /* CustomerInfoView.swift in Sources */,
 				C7EA971F459F7913F8E0AA57 /* Customization.swift in Sources */,
 				FCC30FCD862E497B3A16F92B /* CustomizationView.swift in Sources */,
+				F0ED47D489344126CE140353 /* EstimateDTO.swift in Sources */,
+				259F163D3A122FA90861211E /* FieldMappings.swift in Sources */,
+				81E1878373774E857234799D /* HTTPClient.swift in Sources */,
 				5996BD75FDD4F2843146C4C7 /* HeadlightSelection.swift in Sources */,
 				EA8EE80CBC1BF089D0DD56CB /* LoupeSelection.swift in Sources */,
 				3FB7F7AA2D07F8B2653A041F /* NetworkMonitor.swift in Sources */,
@@ -613,8 +685,16 @@
 				EB5B018FBFFB3F8DA651E029 /* ReviewSubmitView.swift in Sources */,
 				C3C8857DBFB6B5F1542C48D9 /* SettingsView.swift in Sources */,
 				8BA03B484734A3BEA2596CB1 /* StudentInfo.swift in Sources */,
+				0097262574F584EA364F83E8 /* SyncCoordinator.swift in Sources */,
+				ECC9D52662540AAB9F229109 /* SyncEngine.swift in Sources */,
 				9632132D1D95D743977D46F9 /* SyncQueueEntry.swift in Sources */,
 				ED0191FE7D22F7034E188088 /* SyncStatusBadge.swift in Sources */,
+				BF8A4D2B35312D7616B6D10D /* SyncStatusView.swift in Sources */,
+				4A04F9B37DEADEF05478E18D /* TokenStore.swift in Sources */,
+				486FC264A2ED2A35811E719B /* ZohoAuthService.swift in Sources */,
+				34EC8437EE0539EA1FD921CB /* ZohoBooksService.swift in Sources */,
+				37BECCBBCDD4DD32539EEBD0 /* ZohoCRMService.swift in Sources */,
+				18AAAAD5804840F2B9F29D67 /* ZohoEnvironment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,16 +710,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FA2E0CA7E7477D8FDBE9F57 /* APIError.swift in Sources */,
 				AD2B296E75720A54302B5F94 /* AdapterSelection.swift in Sources */,
 				19685D0535D2BCA6F76393F7 /* AndauOrderApp.swift in Sources */,
+				B297DF5E8BF910C1301AE4F2 /* BlueprintDTO.swift in Sources */,
+				3114DADF882654F5E5A729E5 /* BooksCustomerDTO.swift in Sources */,
+				D4F0316BA7A78F771DED6981 /* CRMResponseDTO.swift in Sources */,
 				1302970154C12C4D3ADB5F30 /* CachedZohoItem.swift in Sources */,
 				2312544BA8F9F4CC0AF8FCE9 /* Constants.swift in Sources */,
 				4BE93B4C0C98F4E3B9FF49CA /* ContentView.swift in Sources */,
+				C2E6A5F3538933985635E2D6 /* ConvertLeadDTO.swift in Sources */,
 				2DD5914C94EE96C832A8CF2E /* CurrencyField.swift in Sources */,
 				4D5FBA26D3B69E85941CC22A /* Customer.swift in Sources */,
 				E29F512EE4594CFAF1DC0F30 /* CustomerInfoView.swift in Sources */,
 				BFC74465EA31C22664FF8158 /* Customization.swift in Sources */,
 				6D4E43763D59CAD332161F8C /* CustomizationView.swift in Sources */,
+				0C9A86DA5C1CFAE3E265E307 /* EstimateDTO.swift in Sources */,
+				857C4CC80448D21D21570B42 /* FieldMappings.swift in Sources */,
+				36E59AE1D8EF97A8AD0621C5 /* HTTPClient.swift in Sources */,
 				C7BE8A577EF98C49DFDC4812 /* HeadlightSelection.swift in Sources */,
 				364576F900F5CE34648CA925 /* LoupeSelection.swift in Sources */,
 				76CC2FEDE720ED83416B398C /* NetworkMonitor.swift in Sources */,
@@ -663,8 +751,16 @@
 				8AE15BDAA0E51C3AAA52D424 /* ReviewSubmitView.swift in Sources */,
 				66B9840EC4F53E7B6BB98CC7 /* SettingsView.swift in Sources */,
 				42FF6B7AB448320AC330645E /* StudentInfo.swift in Sources */,
+				501FB247BD6AEBBDAAA73B5E /* SyncCoordinator.swift in Sources */,
+				6E5569659EA1F11784D297E9 /* SyncEngine.swift in Sources */,
 				02006322E195A6385DB3ED8E /* SyncQueueEntry.swift in Sources */,
 				8B44FE9081E6E7668CAEABFB /* SyncStatusBadge.swift in Sources */,
+				6545DBB9724CD71607F4AAD3 /* SyncStatusView.swift in Sources */,
+				BE1E0A2872A22C846369D617 /* TokenStore.swift in Sources */,
+				7EC6B20326B01D7213B52495 /* ZohoAuthService.swift in Sources */,
+				44BC6D8F98F4A1294567C2CB /* ZohoBooksService.swift in Sources */,
+				AF2E20DD90927CEE58892A49 /* ZohoCRMService.swift in Sources */,
+				CA43564E5FA99EA98383EF4D /* ZohoEnvironment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

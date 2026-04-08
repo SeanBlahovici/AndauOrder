@@ -2,6 +2,8 @@ import SwiftUI
 
 struct ReviewSubmitView: View {
     let viewModel: OrderFormViewModel
+    @Environment(SyncCoordinator.self) private var syncCoordinator
+    @Environment(\.modelContext) private var modelContext
 
     private var formData: OrderFormData { viewModel.formData }
 
@@ -82,7 +84,10 @@ struct ReviewSubmitView: View {
                 }
 
                 Button {
-                    viewModel.markForSync()
+                    viewModel.markForSync(syncCoordinator: syncCoordinator)
+                    Task {
+                        await syncCoordinator.syncNow(modelContext: modelContext)
+                    }
                 } label: {
                     Label("Submit to Zoho", systemImage: "paperplane.fill")
                         .frame(maxWidth: .infinity)

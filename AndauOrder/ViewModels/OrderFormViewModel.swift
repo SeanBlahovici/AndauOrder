@@ -73,11 +73,17 @@ final class OrderFormViewModel {
         }
     }
 
-    func markForSync() {
+    /// Enqueues sync steps for this order. Call `syncCoordinator.syncNow()` from the view afterwards.
+    func markForSync(syncCoordinator: SyncCoordinator) {
         save()
         if let orderRecord {
             orderRecord.syncStatus = .pendingSync
-            try? modelContext.save()
+            do {
+                try syncCoordinator.syncEngine.enqueueSync(for: orderRecord, modelContext: modelContext)
+                try modelContext.save()
+            } catch {
+                print("Failed to enqueue sync: \(error)")
+            }
         }
     }
 
