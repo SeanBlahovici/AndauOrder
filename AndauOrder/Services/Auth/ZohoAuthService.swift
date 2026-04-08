@@ -58,15 +58,8 @@ final class ZohoAuthService: ZohoAuthServiceProtocol, @unchecked Sendable {
             throw APIError.unauthorized
         }
 
-        // Prefer refresh token from Keychain; fall back to UserDefaults for initial setup
-        let refreshToken: String
-        if let keychainRT = tokenStore.refreshToken, !keychainRT.isEmpty {
-            refreshToken = keychainRT
-        } else if let defaultsRT = defaults.string(forKey: "zohoRefreshToken"), !defaultsRT.isEmpty {
-            refreshToken = defaultsRT
-            // Persist into Keychain for future use
-            tokenStore.refreshToken = refreshToken
-        } else {
+        // Always read refresh token from UserDefaults (set via Settings UI)
+        guard let refreshToken = defaults.string(forKey: "zohoRefreshToken"), !refreshToken.isEmpty else {
             throw APIError.unauthorized
         }
 
@@ -89,18 +82,40 @@ final class ZohoAuthService: ZohoAuthServiceProtocol, @unchecked Sendable {
             .joined(separator: "&")
             .data(using: .utf8)
 
+        #if DEBUG
+        print("[ZohoAuth] POST \(environment.accountsURL)/oauth/v2/token")
+        print("[ZohoAuth] client_id: \(clientID.prefix(10))...")
+        print("[ZohoAuth] refresh_token: \(refreshToken.prefix(10))...")
+        #endif
+
         let (data, response) = try await session.data(for: request)
         guard let httpResponse = response as? HTTPURLResponse else {
             throw APIError.invalidResponse
         }
+
+        let responseBody = String(data: data, encoding: .utf8) ?? ""
+
+        #if DEBUG
+        print("[ZohoAuth] Status: \(httpResponse.statusCode)")
+        print("[ZohoAuth] Response: \(responseBody)")
+        #endif
+
         guard httpResponse.statusCode == 200 else {
             throw APIError.serverError(
                 statusCode: httpResponse.statusCode,
-                message: String(data: data, encoding: .utf8) ?? "Token refresh failed"
+                message: responseBody
             )
         }
 
-        let tokenResponse = try JSONDecoder().decode(TokenRefreshResponse.self, from: data)
+        // Check for Zoho error response (e.g. {"error": "invalid_code"})
+        if let errorObj = try? JSONDecoder().decode(ZohoErrorResponse.self, from: data),
+           let error = errorObj.error {
+            throw APIError.zohoError(code: error, message: responseBody)
+        }
+
+        guard let tokenResponse = try? JSONDecoder().decode(TokenRefreshResponse.self, from: data) else {
+            throw APIError.serverError(statusCode: httpResponse.statusCode, message: "Unexpected response: \(responseBody)")
+        }
 
         let newToken = tokenResponse.access_token
         let newExpiry = Date.now.addingTimeInterval(TimeInterval(tokenResponse.expires_in))
@@ -118,6 +133,10 @@ final class ZohoAuthService: ZohoAuthServiceProtocol, @unchecked Sendable {
 }
 
 // MARK: - Token Refresh DTO
+
+private struct ZohoErrorResponse: Decodable {
+    let error: String?
+}
 
 private struct TokenRefreshResponse: Decodable {
     let access_token: String
