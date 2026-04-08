@@ -11,6 +11,7 @@
 		02006322E195A6385DB3ED8E /* SyncQueueEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7C7D2A3DD0223399D0039A /* SyncQueueEntry.swift */; };
 		02826CCC5A462DD808FF3019 /* PricingCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5A0FE6C86A141DF48C47A /* PricingCalculatorTests.swift */; };
 		0C9A86DA5C1CFAE3E265E307 /* EstimateDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ECC92C71DE235871582EA9 /* EstimateDTO.swift */; };
+		1108D729606B3A7A1C7FDD97 /* SignatureCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B902C413E603F51FC592C4 /* SignatureCaptureView.swift */; };
 		1302970154C12C4D3ADB5F30 /* CachedZohoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29A119C0702A27A6CC11757 /* CachedZohoItem.swift */; };
 		1758354213C6DF9D7FE91CE5 /* ConvertLeadDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F8439F683985A3B2E681A0 /* ConvertLeadDTO.swift */; };
 		18AAAAD5804840F2B9F29D67 /* ZohoEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DABA7012EB6385E517D2D76 /* ZohoEnvironment.swift */; };
@@ -59,6 +60,7 @@
 		6FA2E0CA7E7477D8FDBE9F57 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8961C3054A70F9B098130E26 /* APIError.swift */; };
 		711374C7B18B893054D95218 /* PricingCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA14D1EB8E9B11EB48ABD4 /* PricingCalculator.swift */; };
 		76CC2FEDE720ED83416B398C /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAC748E80F99024B03A938D /* NetworkMonitor.swift */; };
+		77502C01CEB7E4A0FA0FD4F7 /* SignatureCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B902C413E603F51FC592C4 /* SignatureCaptureView.swift */; };
 		7EC6B20326B01D7213B52495 /* ZohoAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456E604A53C3C2BD4C8097B2 /* ZohoAuthService.swift */; };
 		801D6F97044F0172CD56FBC4 /* OrderRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA7D923F730D3053BF18BD9 /* OrderRecord.swift */; };
 		809FB71534578BB709D24EEC /* OrderListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C282EC9D156EEF464593793E /* OrderListViewModel.swift */; };
@@ -172,6 +174,7 @@
 		A7852BB5BDD19967CF08ED7E /* AndauOrderTests_iOS.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = AndauOrderTests_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00E78D76C9B9A08F4C4D9FA /* SyncCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncCoordinator.swift; sourceTree = "<group>"; };
 		B469F502CA157BE2DB3F91C9 /* TokenStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStore.swift; sourceTree = "<group>"; };
+		B8B902C413E603F51FC592C4 /* SignatureCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureCaptureView.swift; sourceTree = "<group>"; };
 		BAEB2B0128378110F2AA5078 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		BCE7400887ACE5BC1C4CCB62 /* BlueprintDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueprintDTO.swift; sourceTree = "<group>"; };
 		C0BC75B412640D0BC4268755 /* CustomizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationView.swift; sourceTree = "<group>"; };
@@ -463,6 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				231A0C295A6EA8D48CB13447 /* CurrencyField.swift */,
+				B8B902C413E603F51FC592C4 /* SignatureCaptureView.swift */,
 				E17B456D01E117D0DBF2EE2C /* SyncStatusBadge.swift */,
 			);
 			path = Components;
@@ -684,6 +688,7 @@
 				462E6FB1B7296E4B16547644 /* ReviewChecklistView.swift in Sources */,
 				EB5B018FBFFB3F8DA651E029 /* ReviewSubmitView.swift in Sources */,
 				C3C8857DBFB6B5F1542C48D9 /* SettingsView.swift in Sources */,
+				1108D729606B3A7A1C7FDD97 /* SignatureCaptureView.swift in Sources */,
 				8BA03B484734A3BEA2596CB1 /* StudentInfo.swift in Sources */,
 				0097262574F584EA364F83E8 /* SyncCoordinator.swift in Sources */,
 				ECC9D52662540AAB9F229109 /* SyncEngine.swift in Sources */,
@@ -750,6 +755,7 @@
 				46D0CC610FC81A65D52F9DDC /* ReviewChecklistView.swift in Sources */,
 				8AE15BDAA0E51C3AAA52D424 /* ReviewSubmitView.swift in Sources */,
 				66B9840EC4F53E7B6BB98CC7 /* SettingsView.swift in Sources */,
+				77502C01CEB7E4A0FA0FD4F7 /* SignatureCaptureView.swift in Sources */,
 				42FF6B7AB448320AC330645E /* StudentInfo.swift in Sources */,
 				501FB247BD6AEBBDAAA73B5E /* SyncCoordinator.swift in Sources */,
 				6E5569659EA1F11784D297E9 /* SyncEngine.swift in Sources */,
