@@ -137,6 +137,7 @@ enum OrderFormTab: Int, CaseIterable, Identifiable, Sendable {
     case pricing = 3
     case reviewChecklist = 4
     case reviewSubmit = 5
+    case export = 6
 
     var id: Int { rawValue }
 
@@ -148,6 +149,7 @@ enum OrderFormTab: Int, CaseIterable, Identifiable, Sendable {
         case .pricing: "Pricing"
         case .reviewChecklist: "Review"
         case .reviewSubmit: "Submit"
+        case .export: "Export"
         }
     }
 
@@ -159,6 +161,7 @@ enum OrderFormTab: Int, CaseIterable, Identifiable, Sendable {
         case .pricing: "dollarsign.circle"
         case .reviewChecklist: "checklist"
         case .reviewSubmit: "paperplane"
+        case .export: "square.and.arrow.up"
         }
     }
 

@@ -20,6 +20,13 @@ struct OrderListView: View {
         List(filteredOrders, id: \.id, selection: $selectedOrderID) { order in
             OrderRowView(order: order)
                 .contextMenu {
+                    if let formData = order.orderData {
+                        Button {
+                            PDFGenerator.saveOrderPDF(formData: formData)
+                        } label: {
+                            Label("Export to PDF", systemImage: "doc.richtext")
+                        }
+                    }
                     if order.syncStatus == .draft || order.syncStatus == .failed {
                         Button(role: .destructive) {
                             onDelete(order)

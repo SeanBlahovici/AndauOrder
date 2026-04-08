@@ -51,6 +51,8 @@ struct OrderFormContainerView: View {
                     ReviewChecklistView(formData: Bindable(viewModel).formData)
                 case .reviewSubmit:
                     ReviewSubmitView(viewModel: viewModel)
+                case .export:
+                    ExportView(formData: viewModel.formData)
                 }
             }
         }
