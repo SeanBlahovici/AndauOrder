@@ -16,6 +16,7 @@
 		27D04EF4FD9FE8BC47DDC07A /* CustomerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990FBDBEDFB3394F1BD1B18E /* CustomerInfoView.swift */; };
 		27E642577126BBEF7AEEE293 /* PricingCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5A0FE6C86A141DF48C47A /* PricingCalculatorTests.swift */; };
 		28ECBB23073A745A84F7E773 /* PriceCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55282270CF61FF4A32E9C03 /* PriceCatalog.swift */; };
+		2DD5914C94EE96C832A8CF2E /* CurrencyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231A0C295A6EA8D48CB13447 /* CurrencyField.swift */; };
 		33E90309A4F9E533097101C6 /* OrderPricing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4782DB20E8283694B54BD65 /* OrderPricing.swift */; };
 		364576F900F5CE34648CA925 /* LoupeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56D025F07C22406F72D4848 /* LoupeSelection.swift */; };
 		3C02A34EA1E59C8F80814756 /* Prescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2EF1DA6EB54C5CA4F00E12 /* Prescription.swift */; };
@@ -55,6 +56,7 @@
 		A812A9C0497A218E2425E066 /* OrderRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA7D923F730D3053BF18BD9 /* OrderRecord.swift */; };
 		AD2B296E75720A54302B5F94 /* AdapterSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5FB9C673F4F55F68DE95C5 /* AdapterSelection.swift */; };
 		B467FE4B584762D531733E0E /* AdapterSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5FB9C673F4F55F68DE95C5 /* AdapterSelection.swift */; };
+		BEE2534AFFB1083B3E3937BF /* CurrencyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231A0C295A6EA8D48CB13447 /* CurrencyField.swift */; };
 		BFAF0C6B8B7081ADB8A34D41 /* ProductSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6713F1FAF93FAF91EEA29BD /* ProductSelectionView.swift */; };
 		BFC74465EA31C22664FF8158 /* Customization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8C35E8D2AEBAB2A90EC5F9 /* Customization.swift */; };
 		C3C8857DBFB6B5F1542C48D9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC700E635C3C9E86BBE233DD /* SettingsView.swift */; };
@@ -102,6 +104,7 @@
 		1FB3F2C4B0AB2F5E9EFFF5B3 /* PricingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingView.swift; sourceTree = "<group>"; };
 		2288AEC3D602CEBE51B12A1C /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
 		22EF524CD810C5881B7B7774 /* AndauOrder_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AndauOrder_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		231A0C295A6EA8D48CB13447 /* CurrencyField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyField.swift; sourceTree = "<group>"; };
 		2439302F7981444EF126CB84 /* AndauOrderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndauOrderApp.swift; sourceTree = "<group>"; };
 		2B765DF917B56A145D7CAA82 /* ReviewSubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSubmitView.swift; sourceTree = "<group>"; };
 		2D95A109A57749B788F47866 /* HeadlightSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlightSelection.swift; sourceTree = "<group>"; };
@@ -395,6 +398,7 @@
 		EB43658F75A35E6D6AB42887 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				231A0C295A6EA8D48CB13447 /* CurrencyField.swift */,
 				E17B456D01E117D0DBF2EE2C /* SyncStatusBadge.swift */,
 			);
 			path = Components;
@@ -581,6 +585,7 @@
 				D991430E213869DEBC62A0EF /* CachedZohoItem.swift in Sources */,
 				99C3E186A0F2A8A33ACCE13F /* Constants.swift in Sources */,
 				561CA58D8FD8440D063A4278 /* ContentView.swift in Sources */,
+				BEE2534AFFB1083B3E3937BF /* CurrencyField.swift in Sources */,
 				C75CAA0A6B55B415F7E1FBAE /* Customer.swift in Sources */,
 				27D04EF4FD9FE8BC47DDC07A /* CustomerInfoView.swift in Sources */,
 				C7EA971F459F7913F8E0AA57 /* Customization.swift in Sources */,
@@ -630,6 +635,7 @@
 				1302970154C12C4D3ADB5F30 /* CachedZohoItem.swift in Sources */,
 				2312544BA8F9F4CC0AF8FCE9 /* Constants.swift in Sources */,
 				4BE93B4C0C98F4E3B9FF49CA /* ContentView.swift in Sources */,
+				2DD5914C94EE96C832A8CF2E /* CurrencyField.swift in Sources */,
 				4D5FBA26D3B69E85941CC22A /* Customer.swift in Sources */,
 				E29F512EE4594CFAF1DC0F30 /* CustomerInfoView.swift in Sources */,
 				BFC74465EA31C22664FF8158 /* Customization.swift in Sources */,

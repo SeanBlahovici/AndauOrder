@@ -73,18 +73,6 @@ struct PriceCatalogRowView: View {
     @Bindable var entry: PriceCatalogEntry
 
     var body: some View {
-        HStack {
-            Text(entry.label)
-            Spacer()
-            HStack(spacing: 2) {
-                Text("$").foregroundStyle(.secondary)
-                TextField("0", value: $entry.price, format: .number.precision(.fractionLength(2)))
-                    .multilineTextAlignment(.trailing)
-                    #if os(iOS)
-                    .keyboardType(.decimalPad)
-                    #endif
-            }
-            .frame(width: 120)
-        }
+        CurrencyFieldDouble(label: entry.label, amount: $entry.price)
     }
 }
