@@ -34,19 +34,11 @@ struct PricingView: View {
             }
 
             Section("Tax") {
-                HStack {
-                    Text("Tax Rate")
-                    Spacer()
-                    TextField("14.975", text: taxRateText)
-                        .multilineTextAlignment(.trailing)
-                        .textFieldStyle(.plain)
-                        .frame(width: 80)
-                        #if os(iOS)
-                        .keyboardType(.decimalPad)
-                        #endif
-                    Text("%")
-                        .foregroundStyle(.secondary)
-                }
+                TextField("Tax Rate (%)", text: taxRateText)
+                    .multilineTextAlignment(.trailing)
+                    #if os(iOS)
+                    .keyboardType(.decimalPad)
+                    #endif
             }
 
             Section("Totals") {
