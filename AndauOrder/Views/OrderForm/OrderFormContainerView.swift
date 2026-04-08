@@ -33,28 +33,22 @@ struct OrderFormContainerView: View {
             Divider()
 
             // Current tab content
-            TabView(selection: Bindable(viewModel).currentTab) {
-                CustomerInfoView(formData: Bindable(viewModel).formData)
-                    .tag(OrderFormTab.customerInfo)
-
-                ProductSelectionView(formData: Bindable(viewModel).formData)
-                    .tag(OrderFormTab.products)
-
-                CustomizationView(formData: Bindable(viewModel).formData)
-                    .tag(OrderFormTab.customization)
-
-                PricingView(formData: Bindable(viewModel).formData)
-                    .tag(OrderFormTab.pricing)
-
-                ReviewChecklistView(formData: Bindable(viewModel).formData)
-                    .tag(OrderFormTab.reviewChecklist)
-
-                ReviewSubmitView(viewModel: viewModel)
-                    .tag(OrderFormTab.reviewSubmit)
+            Group {
+                switch viewModel.currentTab {
+                case .customerInfo:
+                    CustomerInfoView(formData: Bindable(viewModel).formData)
+                case .products:
+                    ProductSelectionView(formData: Bindable(viewModel).formData)
+                case .customization:
+                    CustomizationView(formData: Bindable(viewModel).formData)
+                case .pricing:
+                    PricingView(formData: Bindable(viewModel).formData)
+                case .reviewChecklist:
+                    ReviewChecklistView(formData: Bindable(viewModel).formData)
+                case .reviewSubmit:
+                    ReviewSubmitView(viewModel: viewModel)
+                }
             }
-            #if os(iOS)
-            .tabViewStyle(.page(indexDisplayMode: .never))
-            #endif
         }
         .navigationTitle(viewModel.formData.customerDisplayName)
         #if os(iOS)
@@ -62,13 +56,13 @@ struct OrderFormContainerView: View {
         #endif
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
-                Button("Save") {
-                    viewModel.save()
+                HStack(spacing: 12) {
+                    SyncStatusBadge(status: viewModel.syncStatus)
+                    Button("Save") {
+                        viewModel.save()
+                    }
+                    .buttonStyle(.borderedProminent)
                 }
-            }
-
-            ToolbarItem(placement: .status) {
-                SyncStatusBadge(status: viewModel.syncStatus)
             }
         }
     }

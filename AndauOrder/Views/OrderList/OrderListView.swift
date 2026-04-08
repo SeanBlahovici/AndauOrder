@@ -19,8 +19,17 @@ struct OrderListView: View {
     var body: some View {
         List(filteredOrders, id: \.id, selection: $selectedOrderID) { order in
             OrderRowView(order: order)
+                .contextMenu {
+                    if order.syncStatus == .draft || order.syncStatus == .failed {
+                        Button(role: .destructive) {
+                            onDelete(order)
+                        } label: {
+                            Label("Delete Order", systemImage: "trash")
+                        }
+                    }
+                }
                 .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                    if order.syncStatus == .draft {
+                    if order.syncStatus == .draft || order.syncStatus == .failed {
                         Button(role: .destructive) {
                             onDelete(order)
                         } label: {

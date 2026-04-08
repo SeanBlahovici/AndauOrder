@@ -10,18 +10,20 @@ struct CustomizationView: View {
                 TextField("Custom Engraving", text: $formData.customization.customEngraving)
 
                 HStack {
-                    Text("Working Distance (in)")
+                    Text("Working Distance")
                     Spacer()
                     TextField(
-                        "inches",
+                        "0",
                         value: $formData.customization.workingDistanceInches,
                         format: .number
                     )
                     .multilineTextAlignment(.trailing)
-                    .frame(width: 80)
                     #if os(iOS)
                     .keyboardType(.decimalPad)
                     #endif
+                    .frame(width: 80)
+                    Text("in")
+                        .foregroundStyle(.secondary)
                 }
 
                 TextField("Case #", text: $formData.customization.caseNumber)

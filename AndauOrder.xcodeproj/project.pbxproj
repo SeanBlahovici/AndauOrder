@@ -97,11 +97,11 @@
 /* Begin PBXFileReference section */
 		1FB3F2C4B0AB2F5E9EFFF5B3 /* PricingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingView.swift; sourceTree = "<group>"; };
 		2288AEC3D602CEBE51B12A1C /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
-		22EF524CD810C5881B7B7774 /* AndauOrder_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AndauOrder_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22EF524CD810C5881B7B7774 /* AndauOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AndauOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2439302F7981444EF126CB84 /* AndauOrderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndauOrderApp.swift; sourceTree = "<group>"; };
 		2B765DF917B56A145D7CAA82 /* ReviewSubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSubmitView.swift; sourceTree = "<group>"; };
 		2D95A109A57749B788F47866 /* HeadlightSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlightSelection.swift; sourceTree = "<group>"; };
-		480C5BD02666A2B8D7BDC4CE /* AndauOrder_iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AndauOrder_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		480C5BD02666A2B8D7BDC4CE /* AndauOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AndauOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB3A6A835EF58DFDF4CBF25 /* OrderFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFormData.swift; sourceTree = "<group>"; };
 		5A8D8CD72A7259FA62268DC7 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		5C1E21FF7CD250D392FA9F23 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 		A3EE3232B0342F62FBB695B0 /* ReviewChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewChecklistView.swift; sourceTree = "<group>"; };
 		A56D025F07C22406F72D4848 /* LoupeSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoupeSelection.swift; sourceTree = "<group>"; };
 		A6E6059806EDE898199B577C /* PPESelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPESelection.swift; sourceTree = "<group>"; };
-		A7852BB5BDD19967CF08ED7E /* AndauOrderTests_iOS.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = AndauOrderTests_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7852BB5BDD19967CF08ED7E /* AndauOrderTests_iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AndauOrderTests_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0BC75B412640D0BC4268755 /* CustomizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationView.swift; sourceTree = "<group>"; };
 		C282EC9D156EEF464593793E /* OrderListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewModel.swift; sourceTree = "<group>"; };
 		C6713F1FAF93FAF91EEA29BD /* ProductSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSelectionView.swift; sourceTree = "<group>"; };
@@ -278,8 +278,8 @@
 		66F26CE1ACC562A2FDE4C86E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				480C5BD02666A2B8D7BDC4CE /* AndauOrder_iOS.app */,
-				22EF524CD810C5881B7B7774 /* AndauOrder_macOS.app */,
+				480C5BD02666A2B8D7BDC4CE /* AndauOrder.app */,
+				22EF524CD810C5881B7B7774 /* AndauOrder.app */,
 				A7852BB5BDD19967CF08ED7E /* AndauOrderTests_iOS.xctest */,
 				F18010100980BC605E7E67EB /* AndauOrderTests_macOS.xctest */,
 			);
@@ -430,7 +430,7 @@
 			packageProductDependencies = (
 			);
 			productName = AndauOrder_macOS;
-			productReference = 22EF524CD810C5881B7B7774 /* AndauOrder_macOS.app */;
+			productReference = 22EF524CD810C5881B7B7774 /* AndauOrder.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4AD21F3C8C262B499B432CCE /* AndauOrderTests_macOS */ = {
@@ -466,7 +466,7 @@
 			packageProductDependencies = (
 			);
 			productName = AndauOrder_iOS;
-			productReference = 480C5BD02666A2B8D7BDC4CE /* AndauOrder_iOS.app */;
+			productReference = 480C5BD02666A2B8D7BDC4CE /* AndauOrder.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B0B5AD0ABB77EF71F4DC57ED /* AndauOrderTests_iOS */ = {
@@ -494,7 +494,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1600;
+				LastUpgradeCheck = 2640;
 				TargetAttributes = {
 					32DF7291C6EB6DBA9C2D5B80 = {
 						DevelopmentTeam = "";
@@ -509,7 +509,6 @@
 						ProvisioningStyle = Automatic;
 					};
 					B0B5AD0ABB77EF71F4DC57ED = {
-						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -672,6 +671,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_GENERATION_MODE = GeneratedFile;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -721,6 +721,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -740,6 +741,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 6.0;
@@ -750,6 +752,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				DEVELOPMENT_TEAM = 57D5QE84VV;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -767,6 +771,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -783,6 +788,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -800,6 +806,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_GENERATION_MODE = GeneratedFile;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -849,6 +856,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -875,6 +883,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
@@ -907,6 +916,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				DEVELOPMENT_TEAM = 57D5QE84VV;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

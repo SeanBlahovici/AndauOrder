@@ -27,7 +27,7 @@ struct PricingView: View {
                         format: .percent
                     )
                     .multilineTextAlignment(.trailing)
-                    .frame(width: 100)
+                    .frame(width: 120)
                     #if os(iOS)
                     .keyboardType(.decimalPad)
                     #endif
@@ -48,18 +48,15 @@ struct PricingView: View {
         HStack {
             Text(label)
             Spacer()
-            Text("$")
-                .foregroundStyle(.secondary)
-            TextField(
-                "0.00",
-                value: value,
-                format: .number.precision(.fractionLength(2))
-            )
-            .multilineTextAlignment(.trailing)
-            .frame(width: 100)
-            #if os(iOS)
-            .keyboardType(.decimalPad)
-            #endif
+            HStack(spacing: 2) {
+                Text("$").foregroundStyle(.secondary)
+                TextField("0", value: value, format: .number.precision(.fractionLength(2)))
+                    .multilineTextAlignment(.trailing)
+                    #if os(iOS)
+                    .keyboardType(.decimalPad)
+                    #endif
+            }
+            .frame(width: 120)
         }
     }
 
