@@ -27,7 +27,7 @@ xcodebuild -project AndauOrder.xcodeproj -scheme AndauOrderTests_macOS -destinat
 - SwiftData for persistence
 - xcodegen (project.yml -> .xcodeproj)
 - Zoho CRM v8 API + Zoho Books v3 API
-- Canada region: accounts.zohocloud.ca, www.zohoapis.ca (production), sandbox.zohoapis.ca (sandbox)
+- Canada region: accounts.zoho.com, www.zohoapis.com (production), sandbox.zohoapis.com (sandbox)
 
 ## Key Architecture Patterns
 
@@ -111,7 +111,7 @@ AndauOrder/Views/Components/
   SignatureCaptureView.swift       # Canvas drawing -> PNG export
 
 AndauOrder/Services/Auth/
-  ZohoEnvironment.swift            # sandbox/production URL resolution (.zohocloud.ca)
+  ZohoEnvironment.swift            # sandbox/production URL resolution (.zoho.com)
   TokenStore.swift                 # Keychain wrapper (Security framework)
   ZohoAuthService.swift            # Token refresh with 5-min expiry buffer
 
@@ -160,7 +160,7 @@ AndauOrderTests/Utilities/
 
 ## Authentication Layer
 
-**ZohoEnvironment** (enum): Resolves base URLs. Both sandbox and production use `accounts.zohocloud.ca` for auth. CRM base differs: `sandbox.zohoapis.ca/crm/v8` vs `www.zohoapis.ca/crm/v8`. Same pattern for Books (`/books/v3`).
+**ZohoEnvironment** (enum): Resolves base URLs. Both sandbox and production use `accounts.zoho.com` for auth. CRM base differs: `sandbox.zohoapis.com/crm/v8` vs `www.zohoapis.com/crm/v8`. Same pattern for Books (`/books/v3`).
 
 **TokenStore** (struct, Sendable): Keychain wrapper using Security framework (SecItemAdd/CopyMatching/Update/Delete). Service name `com.andaumedical.order.zoho`. Stores accessToken, accessTokenExpiry (as epoch TimeInterval), refreshToken. Uses `nonmutating set` with static methods so the struct itself is Sendable.
 
@@ -244,7 +244,7 @@ Injected into SwiftUI environment from AndauOrderApp via `.environment(syncCoord
 
 ## Zoho API Details
 
-**Region:** Canada -- `accounts.zohocloud.ca`, `www.zohoapis.ca` (production), `sandbox.zohoapis.ca` (sandbox)
+**Region:** Canada -- `accounts.zoho.com`, `www.zohoapis.com` (production), `sandbox.zohoapis.com` (sandbox)
 
 **Auth:** Self Client refresh token flow. No OAuth UI. Token stored in Keychain, credentials in UserDefaults (@AppStorage keys: zohoClientID, zohoClientSecret, zohoRefreshToken, zohoOrgID, zohoEnvironment).
 
@@ -257,7 +257,7 @@ Injected into SwiftUI environment from AndauOrderApp via `.environment(syncCoord
 ZohoCRM.modules.ALL,ZohoBooks.estimates.CREATE,ZohoBooks.contacts.CREATE,ZohoBooks.contacts.READ,ZohoBooks.settings.READ,ZohoBooks.items.READ
 ```
 
-### CRM Endpoints (base: https://www.zohoapis.ca/crm/v8)
+### CRM Endpoints (base: https://www.zohoapis.com/crm/v8)
 ```
 POST   /Leads                                    -- Create lead
 GET    /Leads/{id}/actions/blueprint              -- Get available transitions
@@ -267,7 +267,7 @@ PUT    /Deals                                     -- Update deal fields
 GET    /settings/fields?module=Leads              -- Discover custom field names
 ```
 
-### Books Endpoints (base: https://www.zohoapis.ca/books/v3, always add ?organization_id={orgID})
+### Books Endpoints (base: https://www.zohoapis.com/books/v3, always add ?organization_id={orgID})
 ```
 GET    /contacts?email={email}                    -- Search customer
 POST   /contacts                                  -- Create customer

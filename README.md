@@ -47,60 +47,106 @@ xcodebuild -project AndauOrder.xcodeproj -scheme AndauOrderTests_macOS -destinat
 
 ### Prerequisites
 
-- A Zoho account (zoho.com) with CRM and Books modules
-- A Self Client registered at api-console.zoho.com
-- Andau Medical uses the **Canada region** -- all API URLs use `.zohocloud.ca` / `.zohoapis.ca`
+- A Zoho account at zoho.com with CRM and Books modules active
+- Andau Medical uses the **Canada region** -- all API URLs use `.zoho.com` / `.zohoapis.com`
 
-### Step 1: Create Self Client
+### Step 1: Enable CRM Sandbox (for safe testing)
 
-1. Go to api-console.zoho.com
-2. Click "Add Client" then "Self Client"
-3. Note the Client ID and Client Secret
+1. Log into Zoho CRM at crm.zoho.com
+2. Go to **Setup** (gear icon, top right) > **Data Administration** > **Sandbox**
+3. Click **Create Sandbox** -- give it a name like "AndauOrder Testing"
+4. Wait for it to provision (takes a minute)
+5. This creates a copy of your CRM where you can test without affecting real data
 
-### Step 2: Generate Grant Code
+### Step 2: Find Your Organization ID (for Zoho Books)
 
-1. In the Self Client page, enter these scopes:
+1. Log into Zoho Books at books.zoho.com
+2. Go to **Settings** (gear icon) > **Organization Profile**
+3. Your **Organization ID** is displayed at the top -- it's a numeric string like `12345678`
+4. Copy this -- you'll need it for the app
+
+### Step 3: Create a Self Client (API credentials)
+
+1. Go to [api-console.zoho.com](https://api-console.zoho.com)
+2. Sign in with the same Zoho account
+3. Click **Add Client** > **Self Client**
+4. Give it a name like "AndauOrder"
+5. You'll see your **Client ID** and **Client Secret** -- copy both
+
+### Step 4: Generate a Grant Code
+
+1. Still in the Self Client page at api-console.zoho.com, click **Generate Code**
+2. Paste these scopes:
    ```
    ZohoCRM.modules.ALL,ZohoBooks.estimates.CREATE,ZohoBooks.contacts.CREATE,ZohoBooks.contacts.READ,ZohoBooks.settings.READ,ZohoBooks.items.READ
    ```
-2. Set scope duration (prefer long-lived)
-3. Click "Create" and copy the grant code
+3. For **Time Duration**, select the longest option available (10 minutes is typical -- this is just how long you have to exchange it, not how long access lasts)
+4. For **Scope Description**, enter anything (e.g. "AndauOrder app")
+5. Click **Create**
+6. Copy the **grant code** that appears -- you have ~10 minutes to use it
 
-### Step 3: Exchange for Refresh Token
+### Step 5: Exchange Grant Code for a Refresh Token
+
+Run this in Terminal, replacing the placeholders:
 
 ```bash
-curl -X POST "https://accounts.zohocloud.ca/oauth/v2/token" \
+curl -X POST "https://accounts.zoho.com/oauth/v2/token" \
   -d "grant_type=authorization_code" \
   -d "client_id=YOUR_CLIENT_ID" \
   -d "client_secret=YOUR_CLIENT_SECRET" \
   -d "code=YOUR_GRANT_CODE"
 ```
 
-Save the `refresh_token` from the response. This is long-lived and will not expire unless revoked.
+You'll get a JSON response like:
+```json
+{
+  "access_token": "1000.xxxx...",
+  "refresh_token": "1000.yyyy...",
+  "expires_in": 3600,
+  "token_type": "Bearer"
+}
+```
 
-### Step 4: Configure the App
+**Save the `refresh_token`**. This is long-lived and won't expire unless you revoke it. The app uses it to automatically get fresh access tokens.
 
-1. Open AndauOrder and navigate to Settings
-2. Set Environment to **Sandbox** (for testing)
-3. Enter Client ID, Client Secret, Refresh Token, and Organization ID (found in Books under Settings > Organization)
-4. Enter Michelle's email and phone (auto-filled into estimates)
+If you get an error like `"invalid_code"`, the grant code expired -- go back to Step 4 and generate a new one.
+
+### Step 6: Configure the App
+
+1. Open AndauOrder and go to **Settings** (gear icon in sidebar)
+2. Set Environment to **Sandbox**
+3. Enter:
+   - **Client ID** -- from Step 3
+   - **Client Secret** -- from Step 3
+   - **Refresh Token** -- from Step 5
+   - **Organization ID** -- from Step 2
+4. Enter Michelle's email and phone (auto-filled into Zoho Books estimates)
+5. Click **Test Connection** -- you should see a green checkmark
+
+If Test Connection fails:
+- Double-check all 4 credentials are pasted correctly (no extra spaces)
+- Make sure you're using the Canada region account (zoho.com)
+- The grant code may have expired -- regenerate it (Step 4) and re-exchange (Step 5)
+
+### Step 7: Sandbox Testing
+
+1. Use the **flask button** (DEBUG builds) to create a sample order
+2. Open the sample order > go to **Submit** tab > click **Submit to Zoho**
+3. Go to **Settings** > **Sync Status** to watch the 8 steps process
+4. Verify in Zoho CRM Sandbox: lead appears, transitions complete, contact/account/deal created
+5. Verify in Zoho Books: customer and estimate appear with correct line items
+
+### Step 8: Switch to Production
+
+When sandbox testing passes:
+
+1. Generate a **new grant code** (Step 4 -- same scopes)
+2. Exchange for a **new refresh token** (Step 5)
+3. In the app, switch Environment to **Production**
+4. Enter the new Refresh Token (Client ID, Secret, and Org ID stay the same)
 5. Click **Test Connection** to verify
-
-### Step 5: Sandbox Testing
-
-1. Use the "flask" button (DEBUG builds only) to create a sample order
-2. Open the sample order, go to the Submit tab, and click "Submit to Zoho"
-3. Check Settings > Sync Status to monitor the 8-step pipeline
-4. Verify in Zoho CRM Sandbox: lead created, transitions executed, contact/account/deal created
-5. Verify in Zoho Books Sandbox: customer and estimate created
-
-### Step 6: Switch to Production
-
-1. Generate a new grant code with production scopes
-2. Exchange for a production refresh token
-3. In Settings, switch Environment to **Production**
-4. Enter production credentials
-5. Test with a real order, then delete the test data from Zoho
+6. Create a real test order and submit -- verify it appears in production CRM/Books
+7. Delete the test data from Zoho manually if needed
 
 ## Testing
 
