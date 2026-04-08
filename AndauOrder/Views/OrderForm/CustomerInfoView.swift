@@ -74,20 +74,17 @@ struct CustomerInfoView: View {
                         displayedComponents: .date
                     )
 
+                    studentIDPhotoPreview
+
+                    let hasPhoto = formData.customer.studentInfo?.schoolIDPhotoData != nil
                     PhotosPicker(selection: $selectedPhoto, matching: .images) {
-                        if let photoData = formData.customer.studentInfo?.schoolIDPhotoData,
-                           let image = imageFromData(photoData) {
-                            image
-                                .resizable()
-                                .scaledToFit()
-                                .frame(maxHeight: 150)
-                                .clipShape(RoundedRectangle(cornerRadius: 8))
-                        } else {
-                            Label("Select School ID Photo", systemImage: "photo.badge.plus")
-                        }
+                        Label(
+                            hasPhoto ? "Change School ID Photo" : "Select School ID Photo",
+                            systemImage: "photo.badge.plus"
+                        )
                     }
                     .onChange(of: selectedPhoto) { _, newItem in
-                        Task {
+                        Task { @MainActor in
                             if let data = try? await newItem?.loadTransferable(type: Data.self) {
                                 formData.customer.studentInfo?.schoolIDPhotoData = data
                             }
@@ -125,17 +122,28 @@ struct CustomerInfoView: View {
             .textContentType(.countryName)
     }
 
-    #if os(macOS)
-    private func imageFromData(_ data: Data) -> Image? {
-        guard let nsImage = NSImage(data: data) else { return nil }
-        return Image(nsImage: nsImage)
+    @ViewBuilder
+    private var studentIDPhotoPreview: some View {
+        if let photoData = formData.customer.studentInfo?.schoolIDPhotoData {
+            #if os(macOS)
+            if let nsImage = NSImage(data: photoData) {
+                Image(nsImage: nsImage)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxHeight: 150)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+            }
+            #else
+            if let uiImage = UIImage(data: photoData) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxHeight: 150)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+            }
+            #endif
+        }
     }
-    #else
-    private func imageFromData(_ data: Data) -> Image? {
-        guard let uiImage = UIImage(data: data) else { return nil }
-        return Image(uiImage: uiImage)
-    }
-    #endif
 
     private var studentInfoBinding: Binding<StudentInfo> {
         Binding(

@@ -25,6 +25,7 @@
 		2DD5914C94EE96C832A8CF2E /* CurrencyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231A0C295A6EA8D48CB13447 /* CurrencyField.swift */; };
 		3114DADF882654F5E5A729E5 /* BooksCustomerDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A5BCC9C96E68A02025AEDB /* BooksCustomerDTO.swift */; };
 		33E90309A4F9E533097101C6 /* OrderPricing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4782DB20E8283694B54BD65 /* OrderPricing.swift */; };
+		3459820987BEA8E9D6BA41D4 /* SampleOrderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC72F2D797F89739BEC175B /* SampleOrderFactory.swift */; };
 		34EC8437EE0539EA1FD921CB /* ZohoBooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D4707D0D01AA2BF2F456F /* ZohoBooksService.swift */; };
 		364576F900F5CE34648CA925 /* LoupeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56D025F07C22406F72D4848 /* LoupeSelection.swift */; };
 		36E59AE1D8EF97A8AD0621C5 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEB2B0128378110F2AA5078 /* HTTPClient.swift */; };
@@ -50,6 +51,7 @@
 		56604AA6CE9F0D71D28AA405 /* OrderFormContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CCE6F053FD430DB69F1DDF /* OrderFormContainerView.swift */; };
 		58233EC9860750039210F371 /* BlueprintDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7400887ACE5BC1C4CCB62 /* BlueprintDTO.swift */; };
 		5996BD75FDD4F2843146C4C7 /* HeadlightSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D95A109A57749B788F47866 /* HeadlightSelection.swift */; };
+		5D9A7248459198F6CF90E449 /* SampleOrderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC72F2D797F89739BEC175B /* SampleOrderFactory.swift */; };
 		6319436807F3EFDC612087B4 /* AndauOrderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439302F7981444EF126CB84 /* AndauOrderApp.swift */; };
 		6545DBB9724CD71607F4AAD3 /* SyncStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFACEF9B0C473D6F5E8A584 /* SyncStatusView.swift */; };
 		66B9840EC4F53E7B6BB98CC7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC700E635C3C9E86BBE233DD /* SettingsView.swift */; };
@@ -137,6 +139,7 @@
 /* Begin PBXFileReference section */
 		02F8439F683985A3B2E681A0 /* ConvertLeadDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertLeadDTO.swift; sourceTree = "<group>"; };
 		06A5BCC9C96E68A02025AEDB /* BooksCustomerDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCustomerDTO.swift; sourceTree = "<group>"; };
+		0FC72F2D797F89739BEC175B /* SampleOrderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleOrderFactory.swift; sourceTree = "<group>"; };
 		178451FE9A78A31AB1EEEA56 /* ZohoCRMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZohoCRMService.swift; sourceTree = "<group>"; };
 		1F29583045F70A2BE65AD262 /* FieldMappings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldMappings.swift; sourceTree = "<group>"; };
 		1FB3F2C4B0AB2F5E9EFFF5B3 /* PricingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingView.swift; sourceTree = "<group>"; };
@@ -362,6 +365,7 @@
 			children = (
 				EAAC748E80F99024B03A938D /* NetworkMonitor.swift */,
 				FBFA14D1EB8E9B11EB48ABD4 /* PricingCalculator.swift */,
+				0FC72F2D797F89739BEC175B /* SampleOrderFactory.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -687,6 +691,7 @@
 				F3E7320755CE0DB3DC28F0A0 /* ReviewChecklist.swift in Sources */,
 				462E6FB1B7296E4B16547644 /* ReviewChecklistView.swift in Sources */,
 				EB5B018FBFFB3F8DA651E029 /* ReviewSubmitView.swift in Sources */,
+				5D9A7248459198F6CF90E449 /* SampleOrderFactory.swift in Sources */,
 				C3C8857DBFB6B5F1542C48D9 /* SettingsView.swift in Sources */,
 				1108D729606B3A7A1C7FDD97 /* SignatureCaptureView.swift in Sources */,
 				8BA03B484734A3BEA2596CB1 /* StudentInfo.swift in Sources */,
@@ -754,6 +759,7 @@
 				9BAC2F465CB4C6D9C2C270C6 /* ReviewChecklist.swift in Sources */,
 				46D0CC610FC81A65D52F9DDC /* ReviewChecklistView.swift in Sources */,
 				8AE15BDAA0E51C3AAA52D424 /* ReviewSubmitView.swift in Sources */,
+				3459820987BEA8E9D6BA41D4 /* SampleOrderFactory.swift in Sources */,
 				66B9840EC4F53E7B6BB98CC7 /* SettingsView.swift in Sources */,
 				77502C01CEB7E4A0FA0FD4F7 /* SignatureCaptureView.swift in Sources */,
 				42FF6B7AB448320AC330645E /* StudentInfo.swift in Sources */,

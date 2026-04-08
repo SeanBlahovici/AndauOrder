@@ -135,8 +135,6 @@ final class SyncEngine: @unchecked Sendable {
             return
         }
 
-        var hadFailure = false
-
         for entry in entries {
             // Skip completed and skipped entries
             if entry.status == .completed || entry.status == .skipped {
@@ -150,7 +148,6 @@ final class SyncEngine: @unchecked Sendable {
 
             // Max auto-retry check
             if entry.attemptCount >= Self.maxAutoRetries {
-                hadFailure = true
                 break
             }
 
@@ -168,7 +165,6 @@ final class SyncEngine: @unchecked Sendable {
                 entry.lastError = error.localizedDescription
                 order.lastSyncAttempt = Date()
                 try? modelContext.save()
-                hadFailure = true
                 break // Don't skip ahead on failure
             }
         }
