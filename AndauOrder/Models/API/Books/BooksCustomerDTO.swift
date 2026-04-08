@@ -4,6 +4,8 @@ struct BooksContactRequest: Encodable, Sendable {
     let contact_name: String
     let company_name: String?
     let contact_type: String // "customer"
+    let email: String?
+    let phone: String?
     let billing_address: BooksAddress?
     let shipping_address: BooksAddress?
 }

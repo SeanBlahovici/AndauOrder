@@ -69,12 +69,16 @@ struct SettingsView: View {
                 .disabled(clientID.isEmpty || clientSecret.isEmpty || refreshToken.isEmpty || isTestingConnection)
 
                 if let result = connectionTestResult {
-                    Label(
-                        result.message,
-                        systemImage: result.isSuccess ? "checkmark.circle.fill" : "xmark.circle.fill"
-                    )
-                    .foregroundStyle(result.isSuccess ? .green : .red)
-                    .font(.caption)
+                    VStack(alignment: .leading, spacing: 4) {
+                        ForEach(result.results) { service in
+                            Label(
+                                "\(service.label): \(service.detail)",
+                                systemImage: service.isSuccess ? "checkmark.circle.fill" : "xmark.circle.fill"
+                            )
+                            .foregroundStyle(service.isSuccess ? .green : .red)
+                            .font(.caption)
+                        }
+                    }
                 }
             }
 
@@ -136,24 +140,79 @@ struct SettingsView: View {
         .navigationTitle("Settings")
     }
 
+    private var currentEnvironment: ZohoEnvironment {
+        ZohoEnvironment(rawValue: zohoEnvironment) ?? .sandbox
+    }
+
     private func testConnection() {
         isTestingConnection = true
         connectionTestResult = nil
 
+        // Clear cached access token so we force a fresh refresh with current credentials
+        let tokenStore = TokenStore()
+        tokenStore.accessToken = nil
+        tokenStore.accessTokenExpiry = nil
+
         Task {
+            var results: [ServiceTestResult] = []
             let authService = ZohoAuthService()
+
+            // 1. Test OAuth
             do {
                 _ = try await authService.validAccessToken()
-                connectionTestResult = ConnectionTestResult(isSuccess: true, message: "Connected successfully!")
+                results.append(ServiceTestResult(label: "OAuth", isSuccess: true, detail: "Token refresh OK"))
             } catch {
-                connectionTestResult = ConnectionTestResult(isSuccess: false, message: error.localizedDescription)
+                results.append(ServiceTestResult(label: "OAuth", isSuccess: false, detail: error.localizedDescription))
+                connectionTestResult = ConnectionTestResult(results: results)
+                isTestingConnection = false
+                return
             }
+
+            let httpClient = HTTPClient(authService: authService)
+
+            // 2. Test CRM access
+            do {
+                let crmURL = "\(currentEnvironment.crmBaseURL)/Leads"
+                _ = try await httpClient.requestRaw(.get, url: crmURL, queryParams: ["fields": "id", "per_page": "1"])
+                results.append(ServiceTestResult(label: "CRM", isSuccess: true, detail: "Leads module accessible"))
+            } catch {
+                results.append(ServiceTestResult(label: "CRM", isSuccess: false, detail: error.localizedDescription))
+            }
+
+            // 3. Test Books access
+            if orgID.isEmpty {
+                results.append(ServiceTestResult(label: "Books", isSuccess: false, detail: "Organization ID not set"))
+            } else {
+                do {
+                    let booksURL = "\(currentEnvironment.booksBaseURL)/contacts"
+                    _ = try await httpClient.requestRaw(.get, url: booksURL, queryParams: ["organization_id": orgID, "per_page": "1"])
+                    results.append(ServiceTestResult(label: "Books", isSuccess: true, detail: "Contacts module accessible"))
+                } catch {
+                    results.append(ServiceTestResult(label: "Books", isSuccess: false, detail: error.localizedDescription))
+                }
+            }
+
+            connectionTestResult = ConnectionTestResult(results: results)
             isTestingConnection = false
         }
     }
 }
 
-private struct ConnectionTestResult {
+private struct ServiceTestResult: Identifiable {
+    let id = UUID()
+    let label: String
     let isSuccess: Bool
-    let message: String
+    let detail: String
+}
+
+private struct ConnectionTestResult {
+    let results: [ServiceTestResult]
+
+    var isSuccess: Bool {
+        results.allSatisfy(\.isSuccess)
+    }
+
+    var message: String {
+        results.map { "\($0.label): \($0.detail)" }.joined(separator: " · ")
+    }
 }

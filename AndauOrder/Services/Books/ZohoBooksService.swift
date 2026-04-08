@@ -48,6 +48,8 @@ final class ZohoBooksService: ZohoBooksServiceProtocol, @unchecked Sendable {
             contact_name: "\(order.customer.firstName) \(order.customer.lastName)",
             company_name: order.customer.clinicName.isEmpty ? nil : order.customer.clinicName,
             contact_type: "customer",
+            email: order.customer.email.isEmpty ? nil : order.customer.email,
+            phone: order.customer.phone.isEmpty ? nil : order.customer.phone,
             billing_address: Self.booksAddress(from: order.customer.billingAddress),
             shipping_address: Self.booksAddress(from: order.customer.effectiveShippingAddress)
         )

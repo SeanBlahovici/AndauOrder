@@ -97,9 +97,23 @@ struct ReviewSubmitView: View {
                         .frame(maxWidth: .infinity)
                         .fontWeight(.semibold)
                 }
-                .disabled(!viewModel.isReadyToSubmit)
+                .disabled(!viewModel.isReadyToSubmit || viewModel.syncStatus == .synced || viewModel.syncStatus == .syncing)
 
-                if !viewModel.isReadyToSubmit {
+                if viewModel.syncStatus == .synced {
+                    Label(
+                        "This order has been synced to Zoho.",
+                        systemImage: "checkmark.circle.fill"
+                    )
+                    .font(.caption)
+                    .foregroundStyle(.green)
+                } else if viewModel.syncStatus == .syncing {
+                    Label(
+                        "Sync in progress…",
+                        systemImage: "arrow.trianglehead.2.clockwise"
+                    )
+                    .font(.caption)
+                    .foregroundStyle(.blue)
+                } else if !viewModel.isReadyToSubmit {
                     Label(
                         "Complete required fields (customer name, email, and loupe selection) to submit.",
                         systemImage: "exclamationmark.triangle"

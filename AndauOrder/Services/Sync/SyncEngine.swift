@@ -10,6 +10,13 @@ final class SyncEngine: @unchecked Sendable {
 
     private static let maxAutoRetries = 5
 
+    // Expected Zoho blueprint transition names
+    private enum TransitionName {
+        static let tmReachedOut = "TM Reached Out"
+        static let customerEngaged = "Customer Engaged"
+        static let qualified = "Qualified"
+    }
+
     init() {
         let authService = ZohoAuthService()
         self.authService = authService
@@ -32,18 +39,23 @@ final class SyncEngine: @unchecked Sendable {
             (7, .createEstimate),
         ]
 
-        // Remove any existing queue entries for this order before re-enqueuing
+        // Preserve completed entries; only recreate pending/failed/inProgress ones
         let orderID = orderRecord.id
         let existing = try modelContext.fetch(
             FetchDescriptor<SyncQueueEntry>(
                 predicate: #Predicate<SyncQueueEntry> { $0.orderID == orderID }
             )
         )
-        for entry in existing {
+
+        let completedStepTypes = Set(
+            existing.filter { $0.status == .completed }.map { $0.stepTypeRaw }
+        )
+
+        for entry in existing where entry.status != .completed {
             modelContext.delete(entry)
         }
 
-        for (order, stepType) in steps {
+        for (order, stepType) in steps where !completedStepTypes.contains(stepType.rawValue) {
             let entry = SyncQueueEntry(orderID: orderRecord.id, stepType: stepType, stepOrder: order)
             modelContext.insert(entry)
         }
@@ -151,14 +163,24 @@ final class SyncEngine: @unchecked Sendable {
                 break
             }
 
-            // Mark in progress
+            // Mark in progress (non-critical save)
             entry.status = .inProgress
             try? modelContext.save()
 
             do {
                 try await executeStep(entry, order: order, formData: formData)
                 entry.status = .completed
-                try? modelContext.save()
+                do {
+                    try modelContext.save()
+                } catch {
+                    // CRITICAL: Zoho write succeeded but local save failed.
+                    // Capture the Zoho record ID in the error so it's not silently lost.
+                    let zohoID = entry.zohoRecordID ?? "unknown"
+                    entry.status = .failed
+                    entry.lastError = "Local save failed after Zoho write succeeded. Zoho ID: \(zohoID). Error: \(error.localizedDescription)"
+                    try? modelContext.save()
+                    break
+                }
             } catch {
                 entry.status = .failed
                 entry.attemptCount += 1
@@ -191,6 +213,28 @@ final class SyncEngine: @unchecked Sendable {
         // If nothing completed yet and nothing failed, leave as syncing
     }
 
+    /// Finds a blueprint transition by name. Tries exact match first, then case-insensitive contains.
+    /// Logs available transitions on failure for easier debugging.
+    private func findTransition(
+        named targetName: String,
+        in transitions: [BlueprintTransition],
+        stepLabel: String
+    ) throws -> BlueprintTransition {
+        // Prefer exact match
+        if let exact = transitions.first(where: { $0.name == targetName }) {
+            return exact
+        }
+        // Fallback: case-insensitive contains
+        if let partial = transitions.first(where: { $0.name.localizedCaseInsensitiveContains(targetName) }) {
+            return partial
+        }
+        let available = transitions.map { "'\($0.name)'" }.joined(separator: ", ")
+        throw APIError.zohoError(
+            code: "NO_TRANSITION",
+            message: "\(stepLabel) transition not found. Expected: '\(targetName)'. Available: [\(available)]"
+        )
+    }
+
     @MainActor
     private func executeStep(_ entry: SyncQueueEntry, order: OrderRecord, formData: OrderFormData) async throws {
         switch entry.stepType {
@@ -207,20 +251,20 @@ final class SyncEngine: @unchecked Sendable {
         case .transitionLeadToTMReachedOut:
             guard let leadID = order.zohoLeadID else { throw APIError.invalidResponse }
             let transitions = try await crmService.getBlueprint(module: "Leads", recordID: leadID)
-            guard let transition = transitions.first(where: { $0.name.contains("TM Reached Out") || $0.name.contains("Reached") }) else {
-                throw APIError.zohoError(code: "NO_TRANSITION", message: "TM Reached Out transition not found")
-            }
+            let transition = try findTransition(named: TransitionName.tmReachedOut, in: transitions, stepLabel: "TM Reached Out")
             try await crmService.executeTransition(module: "Leads", recordID: leadID, transitionID: transition.id, data: nil)
 
         case .transitionLeadToCustomerEngaged:
             guard let leadID = order.zohoLeadID else { throw APIError.invalidResponse }
             let transitions = try await crmService.getBlueprint(module: "Leads", recordID: leadID)
-            guard let transition = transitions.first(where: { $0.name.contains("Customer Engaged") || $0.name.contains("Engaged") }) else {
-                throw APIError.zohoError(code: "NO_TRANSITION", message: "Customer Engaged transition not found")
-            }
+            let transition = try findTransition(named: TransitionName.customerEngaged, in: transitions, stepLabel: "Customer Engaged")
             try await crmService.executeTransition(module: "Leads", recordID: leadID, transitionID: transition.id, data: nil)
 
         case .fetchCreatedRecords:
+            // Idempotency: skip if lead already converted
+            if order.zohoContactID != nil && order.zohoAccountID != nil && order.zohoDealID != nil {
+                return
+            }
             guard let leadID = order.zohoLeadID else { throw APIError.invalidResponse }
             let result = try await crmService.convertLead(leadID: leadID, order: formData)
             order.zohoContactID = result.contactID
@@ -230,9 +274,7 @@ final class SyncEngine: @unchecked Sendable {
         case .transitionDealToQualified:
             guard let dealID = order.zohoDealID else { throw APIError.invalidResponse }
             let transitions = try await crmService.getBlueprint(module: "Deals", recordID: dealID)
-            guard let transition = transitions.first(where: { $0.name.contains("Qualified") }) else {
-                throw APIError.zohoError(code: "NO_TRANSITION", message: "Qualified transition not found")
-            }
+            let transition = try findTransition(named: TransitionName.qualified, in: transitions, stepLabel: "Qualified")
             try await crmService.executeTransition(module: "Deals", recordID: dealID, transitionID: transition.id, data: nil)
 
         case .updateDealDetails:
@@ -255,6 +297,11 @@ final class SyncEngine: @unchecked Sendable {
             }
 
         case .createEstimate:
+            // Idempotency: skip if estimate already created
+            if let existingID = order.zohoEstimateID {
+                entry.zohoRecordID = existingID
+                return
+            }
             guard let custID = order.zohoBooksCustID else { throw APIError.invalidResponse }
             let estID = try await booksService.createEstimate(customerID: custID, order: formData)
             order.zohoEstimateID = estID

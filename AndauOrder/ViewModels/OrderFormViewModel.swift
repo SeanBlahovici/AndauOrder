@@ -77,6 +77,8 @@ final class OrderFormViewModel {
     func markForSync(syncCoordinator: SyncCoordinator) {
         save()
         if let orderRecord {
+            // Don't re-enqueue a fully synced order
+            guard orderRecord.syncStatus != .synced else { return }
             orderRecord.syncStatus = .pendingSync
             do {
                 try syncCoordinator.syncEngine.enqueueSync(for: orderRecord, modelContext: modelContext)
