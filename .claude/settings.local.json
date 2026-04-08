@@ -11,7 +11,12 @@
       "Bash(xcodebuild -project AndauOrder.xcodeproj -scheme AndauOrder_macOS -destination 'platform=macOS' build)",
       "Bash(xcodegen generate:*)",
       "Bash(xcodebuild -project AndauOrder.xcodeproj -scheme AndauOrder_iOS -destination 'generic/platform=iOS' build)",
-      "Bash(xcodebuild -project AndauOrder.xcodeproj -scheme AndauOrderTests_macOS -destination 'platform=macOS' test)"
+      "Bash(xcodebuild -project AndauOrder.xcodeproj -scheme AndauOrderTests_macOS -destination 'platform=macOS' test)",
+      "Bash(grep -E \"\\\\.\\(swift|yml|yaml|json\\)$\")",
+      "Bash(git commit:*)",
+      "Bash(git:*)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(xcodebuild -project AndauOrder.xcodeproj -scheme AndauOrder_macOS -configuration Release -destination 'platform=macOS' -derivedDataPath build CODE_SIGN_IDENTITY=- CODE_SIGNING_REQUIRED=NO build)"
     ]
   },
   "sandbox": {

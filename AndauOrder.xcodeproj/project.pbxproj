@@ -144,7 +144,7 @@
 		1F29583045F70A2BE65AD262 /* FieldMappings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldMappings.swift; sourceTree = "<group>"; };
 		1FB3F2C4B0AB2F5E9EFFF5B3 /* PricingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricingView.swift; sourceTree = "<group>"; };
 		2288AEC3D602CEBE51B12A1C /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
-		22EF524CD810C5881B7B7774 /* AndauOrder_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AndauOrder_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22EF524CD810C5881B7B7774 /* AndauOrder_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = AndauOrder_macOS.app; path = AndauOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		231A0C295A6EA8D48CB13447 /* CurrencyField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyField.swift; sourceTree = "<group>"; };
 		23271E8E333BE5B59B0B61CE /* SyncEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncEngine.swift; sourceTree = "<group>"; };
 		2439302F7981444EF126CB84 /* AndauOrderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndauOrderApp.swift; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 		2D95A109A57749B788F47866 /* HeadlightSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlightSelection.swift; sourceTree = "<group>"; };
 		421E54F24235EAE89E1A3789 /* PriceCatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCatalogView.swift; sourceTree = "<group>"; };
 		456E604A53C3C2BD4C8097B2 /* ZohoAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZohoAuthService.swift; sourceTree = "<group>"; };
-		480C5BD02666A2B8D7BDC4CE /* AndauOrder_iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AndauOrder_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		480C5BD02666A2B8D7BDC4CE /* AndauOrder_iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; name = AndauOrder_iOS.app; path = AndauOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB3A6A835EF58DFDF4CBF25 /* OrderFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFormData.swift; sourceTree = "<group>"; };
 		5A8D8CD72A7259FA62268DC7 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		5C1E21FF7CD250D392FA9F23 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -585,7 +585,6 @@
 						ProvisioningStyle = Automatic;
 					};
 					4AD21F3C8C262B499B432CCE = {
-						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 					9DEBC1DEA84A69760418375F = {
@@ -893,6 +892,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 57D5QE84VV;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -909,6 +909,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 57D5QE84VV;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
